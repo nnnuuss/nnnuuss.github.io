@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="比过程更重要的是结果">
-<meta property="og:type" content="website">
-<meta property="og:title" content="resources">
-<meta property="og:url" content="http://example.com/resources/index.html">
+  <meta name="description" content="模板的意义在于泛型,即忽略具体的类型,站在一种抽象的角度来进行思考,我们举一个function-template 的例子 12345678910111213template&lt;class T&gt;const T&amp; max(const T&amp; a, const T&amp; b)&amp;#123;    return a &gt; b ? a : b;&amp;#125;class perso">
+<meta property="og:type" content="article">
+<meta property="og:title" content="function-template">
+<meta property="og:url" content="http://example.com/2021/03/19/function-template/index.html">
 <meta property="og:site_name" content="Nnnuus&#39;s World">
-<meta property="og:description" content="比过程更重要的是结果">
+<meta property="og:description" content="模板的意义在于泛型,即忽略具体的类型,站在一种抽象的角度来进行思考,我们举一个function-template 的例子 12345678910111213template&lt;class T&gt;const T&amp; max(const T&amp; a, const T&amp; b)&amp;#123;    return a &gt; b ? a : b;&amp;#125;class perso">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-03-13T01:32:11.000Z">
-<meta property="article:modified_time" content="2021-03-13T01:34:20.700Z">
+<meta property="article:published_time" content="2021-03-19T08:11:31.000Z">
+<meta property="article:modified_time" content="2021-03-19T08:16:35.311Z">
 <meta property="article:author" content="Nnnuus">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/resources/">
+<link rel="canonical" href="http://example.com/2021/03/19/function-template/">
 
 
 <script id="page-configurations">
@@ -40,13 +40,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>resources | Nnnuus's World
-</title>
+  <title>function-template | Nnnuus's World</title>
   
 
 
@@ -153,43 +152,97 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/19/function-template/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
+      <meta itemprop="name" content="Nnnuus">
+      <meta itemprop="description" content="比过程更重要的是结果">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nnnuus's World">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          function-template
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">resources
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
 
-<div class="post-meta">
+              <time title="创建时间：2021-03-19 16:11:31 / 修改时间：16:16:35" itemprop="dateCreated datePublished" datetime="2021-03-19T16:11:31+08:00">2021-03-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">C++笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>模板的意义在于泛型,即忽略具体的类型,站在一种抽象的角度来进行思考,我们举一个function-template 的例子</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">const</span> T&amp; <span class="title">max</span><span class="params">(<span class="keyword">const</span> T&amp; a, <span class="keyword">const</span> T&amp; b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a &gt; b ? a : b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">person</span>&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&gt; (<span class="keyword">const</span> person&amp; a) <span class="keyword">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> age &gt; a.age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>先写好一个比较大小的模板,具体的比较规则就交给类内的运算符重载来进行处理</p>
+
+    </div>
+
+    
+    
+    
+	
+	 
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/19/B-M-arrays/" rel="prev" title="B. M-arrays">
+      <i class="fa fa-chevron-left"></i> B. M-arrays
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/03/19/member-template/" rel="next" title="member-template">
+      member-template <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
 
 
           </div>
