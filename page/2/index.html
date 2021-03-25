@@ -613,7 +613,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-13 14:18:12" itemprop="dateModified" datetime="2021-03-13T14:18:12+08:00">2021-03-13</time>
+                <time title="修改时间：2021-03-25 10:54:38" itemprop="dateModified" datetime="2021-03-25T10:54:38+08:00">2021-03-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -647,7 +647,7 @@
 
 <p>即先析构再释放相关的内存,对于析构函数的重要性,之前已经提过,如果一个对象中分配的有相关的动态内存,那么直接进行free的话,对象内分配的内存就无法再找到,会发生内存泄漏.</p>
 <p>这里直接截一张教学的图来进行总结:</p>
-<p><img src="C:\Users\hxy\Desktop\QQ图片20210312205104.png" alt="QQ图片20210312205104"></p>
+<p><img src="C:\Users\hxy\Desktop\杂七杂八\QQ图片20210312205104.png" alt="QQ图片20210312205104"></p>
 <p>1.在gdb状态下分配一块内存区域会消耗更大的内存空间,具体的用处我还不得而知.</p>
 <p>2.在动态分配内存时,这一块内存的首部和尾部会各存储一个四字节的数据,用来记录每块内存的地址,便于编译器后续的回收,这块区域的最后一位表示内存的状态,分配出去表示1,前面几位表示内存的大小,因为地址采用16进制表示,所以这里是4.</p>
 <p>3.动态内存的分配编译器只能一次16字节的分配,具体原因我不得而知.</p>
