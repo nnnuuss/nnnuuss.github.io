@@ -22,19 +22,22 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="A. GCD Sum time limit per test 1 second memory limit per test 256 megabytes input standard input output standard output The gcdSum of a positive integer is the gcd of that integer with its sum of digi">
+  <meta name="description" content="模拟队列,但直接模拟肯定会超时,进行一次分解的操作得到的数据大小仍然等于原数组,模拟时需要注意的是,一定是先一次一次的遍历整个数组,当不能被整除时停下,如果遍历一个元素直到元素不能被整除,这种思路是错的,我就犯了这个错误 1234567891011121314151617181920212223242526272829303132333435#include&lt;bits&#x2F;stdc++.h&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="711div2 A. GCD Sum">
-<meta property="og:url" content="http://example.com/2021/03/30/711div2-A-GCD-Sum/index.html">
+<meta property="og:title" content="694div2-B. Strange List">
+<meta property="og:url" content="http://example.com/2021/04/10/694div2-B-Strange-List/index.html">
 <meta property="og:site_name" content="Nnnuus&#39;s World">
-<meta property="og:description" content="A. GCD Sum time limit per test 1 second memory limit per test 256 megabytes input standard input output standard output The gcdSum of a positive integer is the gcd of that integer with its sum of digi">
+<meta property="og:description" content="模拟队列,但直接模拟肯定会超时,进行一次分解的操作得到的数据大小仍然等于原数组,模拟时需要注意的是,一定是先一次一次的遍历整个数组,当不能被整除时停下,如果遍历一个元素直到元素不能被整除,这种思路是错的,我就犯了这个错误 1234567891011121314151617181920212223242526272829303132333435#include&lt;bits&#x2F;stdc++.h&amp;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-03-30T12:23:00.000Z">
-<meta property="article:modified_time" content="2021-03-30T12:27:50.017Z">
+<meta property="og:image" content="http://example.com/2021/04/10/694div2-B-Strange-List/694div2-B-Strange-List/image-20210410090624167.png">
+<meta property="og:image" content="http://example.com/2021/04/10/694div2-B-Strange-List/694div2-B-Strange-List/image-20210410090706552.png">
+<meta property="article:published_time" content="2021-04-10T01:05:19.000Z">
+<meta property="article:modified_time" content="2021-04-10T01:07:15.686Z">
 <meta property="article:author" content="Nnnuus">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/04/10/694div2-B-Strange-List/694div2-B-Strange-List/image-20210410090624167.png">
 
-<link rel="canonical" href="http://example.com/2021/03/30/711div2-A-GCD-Sum/">
+<link rel="canonical" href="http://example.com/2021/04/10/694div2-B-Strange-List/">
 
 
 <script id="page-configurations">
@@ -47,7 +50,7 @@
   };
 </script>
 
-  <title>711div2 A. GCD Sum | Nnnuus's World</title>
+  <title>694div2-B. Strange List | Nnnuus's World</title>
   
 
 
@@ -162,7 +165,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/30/711div2-A-GCD-Sum/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/10/694div2-B-Strange-List/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
@@ -175,7 +178,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          711div2 A. GCD Sum
+          694div2-B. Strange List
         </h1>
 
         <div class="post-meta">
@@ -188,7 +191,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-03-30 20:23:00 / 修改时间：20:27:50" itemprop="dateCreated datePublished" datetime="2021-03-30T20:23:00+08:00">2021-03-30</time>
+              <time title="创建时间：2021-04-10 09:05:19 / 修改时间：09:07:15" itemprop="dateCreated datePublished" datetime="2021-04-10T09:05:19+08:00">2021-04-10</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -218,29 +221,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>A. GCD Sum</p>
-<p>time limit per test</p>
-<p>1 second</p>
-<p>memory limit per test</p>
-<p>256 megabytes</p>
-<p>input</p>
-<p>standard input</p>
-<p>output</p>
-<p>standard output</p>
-<p>The gcdSum of a positive integer is the gcd of that integer with its sum of digits. Formally, gcdSum(x)=gcd(x, sum of digits of x) for a positive integer x. gcd(a,b) denotes the greatest common divisor of a and b — the largest integer d such that both integers a and b are divisible by d.</p>
-<p>For example: gcdSum(762)=gcd(762,7+6+2)=gcd(762,15)=3.</p>
-<p>Given an integer n, find the smallest integer x≥n such that gcdSum(x)&gt;1.</p>
-<p>Input</p>
-<p>The first line of input contains one integer t(1≤t≤104) — the number of test cases.</p>
-<p>Then t lines follow, each containing a single integer n(1≤n≤1018).</p>
-<p>All test cases in one test are different.</p>
-<p>Output</p>
-<p>Output t lines, where the i-th line is a single integer containing the answer to the i-th test case.</p>
-<p>解题思路:一个能被3整除的数字,它的各个位数之和也一定能被3整除,这是一个数学规律,由此可以得到的推论是,我们只需要进行三次gcdsum运算即可,因为在n, n+1, n+2中一定有一个数字被3整除,即一定存在一解,其次我们需要判断这几解中最小的解,代码如下:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">gcd_sum</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> sum)</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> temp = sum, digitsum = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(temp)&#123;</span><br><span class="line">        digitsum += temp % <span class="number">10</span>;</span><br><span class="line">        temp /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> gcd = __gcd(sum, digitsum);</span><br><span class="line">    <span class="keyword">return</span> gcd;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> t;</span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">        <span class="keyword">if</span> (gcd_sum(n) &gt; <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; n &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (gcd_sum(n+<span class="number">1</span>) &gt; <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; n + <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (gcd_sum(n+<span class="number">2</span>) &gt; <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; n + <span class="number">2</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里学会了STL内置的gcd,用法为__gcd.</p>
-
+        <p><img src="694div2-B-Strange-List/image-20210410090624167.png" alt="image-20210410090624167"></p>
+<p><img src="694div2-B-Strange-List/image-20210410090706552.png" alt="image-20210410090706552"></p>
+<p>模拟队列,但直接模拟肯定会超时,进行一次分解的操作得到的数据大小仍然等于原数组,模拟时需要注意的是,一定是先一次一次的遍历整个数组,当不能被整除时停下,如果遍历一个元素直到元素不能被整除,这种思路是错的,我就犯了这个错误</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">100005</span>];</span><br><span class="line"><span class="keyword">int</span> b[<span class="number">100005</span>];</span><br><span class="line"><span class="keyword">int</span> t, n, x;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;x;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">            b[i] = a[i];</span><br><span class="line">            ans += a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">while</span>(flag)&#123;</span><br><span class="line">            <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; ++i)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[i] % x == <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    ans += b[i];</span><br><span class="line">                    a[i] /= x;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    flag = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -257,13 +241,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/03/30/%E7%BB%84%E5%90%88%E6%95%B0%E6%A8%A1%E6%9D%BF/" rel="prev" title="组合数模板">
-      <i class="fa fa-chevron-left"></i> 组合数模板
+    <a href="/2021/04/09/695div2-B-Hills-And-Valleys/" rel="prev" title="695div2B. Hills And Valleys">
+      <i class="fa fa-chevron-left"></i> 695div2B. Hills And Valleys
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/03/31/%E4%BD%9C%E7%94%A8%E5%9F%9F/" rel="next" title="作用域">
-      作用域 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
