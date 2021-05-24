@@ -159,6 +159,80 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/10/694div2-B-Strange-List/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
+      <meta itemprop="name" content="Nnnuus">
+      <meta itemprop="description" content="比过程更重要的是结果">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nnnuus's World">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/10/694div2-B-Strange-List/" class="post-title-link" itemprop="url">694div2-B. Strange List</a>
+        </h2>
+
+        <div class="post-meta">
+
+		
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-10 09:05:19 / 修改时间：09:19:59" itemprop="dateCreated datePublished" datetime="2021-04-10T09:05:19+08:00">2021-04-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="/GfFpxkXelJC8I3t.png" alt="image-20210410090624167.png"></p>
+<p><img src="/VGB2bwdpXyKlCtm.png" alt="image-20210410090706552.png"></p>
+<p>模拟队列,但直接模拟肯定会超时,进行一次分解的操作得到的数据大小仍然等于原数组,模拟时需要注意的是,一定是先一次一次的遍历整个数组,当不能被整除时停下,如果遍历一个元素直到元素不能被整除,这种思路是错的,我就犯了这个错误</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">100005</span>];</span><br><span class="line"><span class="keyword">int</span> b[<span class="number">100005</span>];</span><br><span class="line"><span class="keyword">int</span> t, n, x;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;x;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">            b[i] = a[i];</span><br><span class="line">            ans += a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">while</span>(flag)&#123;</span><br><span class="line">            <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; ++i)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[i] % x == <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    ans += b[i];</span><br><span class="line">                    a[i] /= x;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    flag = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+	
+	 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/09/695div2-B-Hills-And-Valleys/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1034,109 +1108,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/29/C-Ball-in-Berland/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
-      <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="比过程更重要的是结果">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nnnuus's World">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/29/C-Ball-in-Berland/" class="post-title-link" itemprop="url">C. Ball in Berland</a>
-        </h2>
-
-        <div class="post-meta">
-
-		
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-03-29 21:46:43 / 修改时间：21:57:52" itemprop="dateCreated datePublished" datetime="2021-03-29T21:46:43+08:00">2021-03-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>C. Ball in Berland</p>
-<p>time limit per test</p>
-<p>2 seconds</p>
-<p>memory limit per test</p>
-<p>256 megabytes</p>
-<p>input</p>
-<p>standard input</p>
-<p>output</p>
-<p>standard output</p>
-<p>At the school where Vasya is studying, preparations are underway for the graduation ceremony. One of the planned performances is a ball, which will be attended by pairs of boys and girls.</p>
-<p>Each class must present two couples to the ball. In Vasya’s class, aa boys and bb girls wish to participate. But not all boys and not all girls are ready to dance in pairs.</p>
-<p>Formally, you know kk possible one-boy-one-girl pairs. You need to choose two of these pairs so that no person is in more than one pair.</p>
-<p>For example, if a=3a=3, b=4b=4, k=4k=4 and the couples (1,2), (1,3), (2,2), (3,4) are ready to dance together (in each pair, the boy’s number comes first, then the girl’s number), then the following combinations of two pairs are possible (not all possible options are listed below):</p>
-<ul>
-<li>(1,3) and (2,2);</li>
-<li>(3,4) and (1,3);</li>
-</ul>
-<p>But the following combinations are not possible:</p>
-<ul>
-<li>(1,3) and (1,2) — the first boy enters two pairs;</li>
-<li>(1,2)and (2,2) — the second girl enters two pairs;</li>
-</ul>
-<p>Find the number of ways to select two pairs that match the condition above. Two ways are considered different if they consist of different pairs.</p>
-<p>Input</p>
-<p>The first line contains one integer t (1≤t≤10e4) — the number of test cases. Then t test cases follow.</p>
-<p>The first line of each test case contains three integers aa, bb and kk (1≤a,b,k≤2⋅1051≤a,b,k≤2⋅105) — the number of boys and girls in the class and the number of couples ready to dance together.</p>
-<p>The second line of each test case contains kk integers a1,a2,…ak (1≤ai≤a), where ai is the number of the boy in the pair with the number i.</p>
-<p>The third line of each test case contains kk integers b1,b2,…bk (1≤bi≤b), where bi is the number of the girl in the pair with the number i.</p>
-<p>It is guaranteed that the sums of aa, bb, and kk over all test cases do not exceed 2⋅10e5</p>
-<p>It is guaranteed that each pair is specified at most once in one test case.</p>
-<p>题目大意:在输入的表示男女的序列号中,找出尽可能多的pair,且pair不会发生人员冲突.</p>
-<p>解题思路,用一个map来存储男女配对的关系,然后用一个数组来表示某编号男生或女生可以进行的组合数,在每次计算时,先选定一个pair,然后对这个pair之后的进行计算,用pair剩余数减去重叠数,即当前男生可以组成的pair数和当前女生可以组成的pair数最后再加上当前的pair数,每次运算后,对应的男生编号的可形成的pair数就减一,女生也相同,同时该种组合也会减小.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxN = <span class="number">2e6</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> t;</span><br><span class="line"><span class="keyword">int</span> boy[maxN];</span><br><span class="line"><span class="keyword">int</span> girl[maxN];</span><br><span class="line"><span class="keyword">int</span> b[maxN];</span><br><span class="line"><span class="keyword">int</span> g[maxN];</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;, <span class="keyword">int</span>&gt;mp;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">int</span> n, i, j;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;i&gt;&gt;j&gt;&gt;n;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;b[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;g[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)&#123;</span><br><span class="line">            mp[&#123;b[i], g[i]&#125;]++;</span><br><span class="line">            boy[b[i]]++;</span><br><span class="line">            girl[g[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            mp[&#123;b[i], g[i]&#125;]--;</span><br><span class="line">            boy[b[i]]--;</span><br><span class="line">            girl[g[i]]--;</span><br><span class="line">            <span class="keyword">long</span> <span class="keyword">long</span> pre = n - i - <span class="number">1</span>;</span><br><span class="line">            ans += pre - girl[g[i]] - boy[b[i]] + mp[&#123;b[i],g[i]&#125;];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        mp.clear();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-	
-	 
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1208,7 +1179,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
