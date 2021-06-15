@@ -159,6 +159,87 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/13/const%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E8%A1%A5%E5%85%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
+      <meta itemprop="name" content="Nnnuus">
+      <meta itemprop="description" content="比过程更重要的是结果">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nnnuus's World">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/13/const%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E8%A1%A5%E5%85%85/" class="post-title-link" itemprop="url">const的一点小补充</a>
+        </h2>
+
+        <div class="post-meta">
+
+		
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-13 13:55:59 / 修改时间：14:20:31" itemprop="dateCreated datePublished" datetime="2021-03-13T13:55:59+08:00">2021-03-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">C++笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>1</p>
+<p>今天在复习之前的complex类的课件时,准备自己重新独立的写一遍complex类,重写的过程中发现了一些问题,这里来进行补充.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">complex</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">double</span> re, im;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">complex</span>(<span class="keyword">double</span> real = <span class="number">0</span>, <span class="keyword">double</span> imag = <span class="number">0</span>)</span><br><span class="line">    : re(real), im(imag) &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">double</span>&amp; <span class="title">real</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;<span class="keyword">return</span> re;&#125;	<span class="comment">//error   </span></span><br><span class="line">    <span class="function"><span class="keyword">const</span> <span class="keyword">double</span>&amp; <span class="title">imag</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;<span class="keyword">return</span> im;&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>上面的一句关于返回double类型的引用,因为函数后的const将该对象的性质变为常量对象,所以该对象中的所有元素都为常量,如果直接采用普通的引用则会报错,这里补上截图</p>
+<p>![屏幕截图 2021-03-13 135856](C:\Users\hxy\Desktop\杂七杂八\屏幕截图 2021-03-13 135856.png)</p>
+<p>关于课件中相关代码的处理这里也补上</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">complex</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">complex</span>(<span class="keyword">double</span> r = <span class="number">0</span>, <span class="keyword">double</span> i = <span class="number">0</span>)</span><br><span class="line">		:re(r), im(i)</span><br><span class="line">	&#123; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">real</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> re; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">imag</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> im; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">double</span> re, im;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">double</span></span><br><span class="line">real(<span class="keyword">const</span> <span class="built_in">complex</span>&amp; x)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> x.real();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">double</span></span><br><span class="line">imag(<span class="keyword">const</span> <span class="built_in">complex</span>&amp; x)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> x.real();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里又提供了两个函数作为外界接口,调用方法更加的通俗易懂.</p>
+
+      
+    </div>
+
+    
+    
+    
+	
+	 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/12/A-Add-and-Divide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1007,7 +1088,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
