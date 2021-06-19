@@ -159,6 +159,94 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/13/write-an-OS-step-by-step/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
+      <meta itemprop="name" content="Nnnuus">
+      <meta itemprop="description" content="比过程更重要的是结果">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nnnuus's World">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/13/write-an-OS-step-by-step/" class="post-title-link" itemprop="url">write an OS step by step</a>
+        </h2>
+
+        <div class="post-meta">
+
+		
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-13 19:15:30" itemprop="dateCreated datePublished" datetime="2021-05-13T19:15:30+08:00">2021-05-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-17 19:34:40" itemprop="dateModified" datetime="2021-05-17T19:34:40+08:00">2021-05-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>本blog参考极客时间课程</p>
+<p>课程二</p>
+<p>下面是一个简单的hello OS的实现,记录一下踩得坑.</p>
+<p>实验环境:mobaxtrem + aliyun +Ubuntu20.04</p>
+<p>首先需要安装qemu-system-i386</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install qemu-system-i386</span><br></pre></td></tr></table></figure>
+
+<p>然后从别人写好的repo clone一下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://gitee.com/gaopedro/pos</span><br></pre></td></tr></table></figure>
+
+<p>最后直接启动qemu就可以了</p>
+<img src="/2021/05/13/write-an-OS-step-by-step/image-20210513191935927.png" class="" title="image-20210513191935927">
+
+<p>这是实验成果.<br>这中间还有比较复杂的过程,这里提一下,首先是汇编的环境配置需要安装nasm</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install nasm</span><br></pre></td></tr></table></figure>
+
+<p>然后是使用make对几个文件进行编译,编译的过程首先是文件经过预处理,把相应的宏定义进行替换,然后汇编成汇编码,最后直接转化成可执行的二进制文件,然后再通过链接器将相关需要的链接在一起.</p>
+<img src="/2021/05/13/write-an-OS-step-by-step/cbd634cd5256e372bcbebd4b95f21b34.jpg" class="" title="img">
+
+<p>借用一下课程的图</p>
+
+      
+    </div>
+
+    
+    
+    
+	
+	 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/08/Learning-Notes-about-xv6kernel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -902,112 +990,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/08/696div2-C-Array-Destruction/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
-      <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="比过程更重要的是结果">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nnnuus's World">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/08/696div2-C-Array-Destruction/" class="post-title-link" itemprop="url">C. Array Destruction</a>
-        </h2>
-
-        <div class="post-meta">
-
-		
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-08 14:10:38 / 修改时间：14:13:39" itemprop="dateCreated datePublished" datetime="2021-04-08T14:10:38+08:00">2021-04-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>C. Array Destruction</p>
-<p>time limit per test</p>
-<p>1 second</p>
-<p>memory limit per test</p>
-<p>256 megabytes</p>
-<p>input</p>
-<p>standard input</p>
-<p>output</p>
-<p>standard output</p>
-<p>You found a useless array aa of 2n positive integers. You have realized that you actually don’t need this array, so you decided to throw out all elements of a.</p>
-<p>It could have been an easy task, but it turned out that you should follow some rules:</p>
-<ol>
-<li>In the beginning, you select any positive integer x.</li>
-<li>Then you do the following operation n times:<ul>
-<li>select two elements of array with sum equals x;</li>
-<li>remove them from aa and replace x with maximum of that two numbers.</li>
-</ul>
-</li>
-</ol>
-<p>For example, if initially a=[3,5,1,2], you can select x=6. Then you can select the second and the third elements of aa with sum 5+1=6 and throw them out. After this operation, x equals 5 and there are two elements in array: 3 and 2. You can throw them out on the next operation.</p>
-<p>Note, that you choose x before the start and can’t change it as you want between the operations.</p>
-<p>Determine how should you behave to throw out all elements of a.</p>
-<p>Input</p>
-<p>The first line contains a single integer t (1≤t≤1000) — the number of test cases.</p>
-<p>The first line of each test case contains the single integer n (1≤n≤1000).</p>
-<p>The second line of each test case contains 2n2n integers a1,a2,…,a2na1,a2,…,a2n (1≤ai≤1e6) — the initial array a.</p>
-<p>It is guaranteed that the total sum of n over all test cases doesn’t exceed 1000.</p>
-<p>Output</p>
-<p>For each test case in the first line print YES if it is possible to throw out all elements of the array and NO otherwise.</p>
-<p>If it is possible to throw out all elements, print the initial value of xx you’ve chosen. Print description of n operations next. For each operation, print the pair of integers you remove.</p>
-<p>大致思路我想到了,就是贪心,每次需要先从最大的数字开始进行,只有这样才能保证每个数字都有被用上的可能,这里个关键在于,和最大数字相加的那个数字是随机的,需要通过枚举来进行测验,不过数据量很小,所以不会超时,这个题还主要是加强了multiset的用法.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> t;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">check</span><span class="params">(<span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;a, <span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="built_in">multiset</span>&lt;<span class="keyword">int</span>&gt;s;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> e : a)</span><br><span class="line">        s.insert(e);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;res;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)&#123;</span><br><span class="line">        <span class="keyword">auto</span> it1 = s.end();</span><br><span class="line">        it1--;</span><br><span class="line">        <span class="keyword">int</span> y = x - *it1;</span><br><span class="line">        s.erase(it1);</span><br><span class="line">        <span class="keyword">auto</span> it2 = s.find(y);</span><br><span class="line">        <span class="keyword">if</span> (it2 == s.end())</span><br><span class="line">            <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">        res.push_back(x - y);</span><br><span class="line">        res.push_back(y);</span><br><span class="line">        x = max(x-y, y);</span><br><span class="line">        s.erase(it2);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">a</span><span class="params">(<span class="number">2</span>*n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span> * n; ++i)</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">    sort(a.begin(), a.end());</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span> * n - <span class="number">1</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> x = a[i] + a[<span class="number">2</span> * n - <span class="number">1</span>];</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;res = check(n, a, x);</span><br><span class="line">        <span class="keyword">if</span> (res.size())&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;YES\n&quot;</span>;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)&#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; res[<span class="number">2</span>*j]&lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; res[<span class="number">2</span>*j+<span class="number">1</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;NO\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        solve();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-	
-	 
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1075,7 +1061,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1088,7 +1074,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
