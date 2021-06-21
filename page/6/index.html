@@ -159,6 +159,105 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/10/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
+      <meta itemprop="name" content="Nnnuus">
+      <meta itemprop="description" content="比过程更重要的是结果">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nnnuus's World">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/10/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">构造函数</a>
+        </h2>
+
+        <div class="post-meta">
+
+		
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-10 20:23:41" itemprop="dateCreated datePublished" datetime="2021-03-10T20:23:41+08:00">2021-03-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-28 13:58:51" itemprop="dateModified" datetime="2021-03-28T13:58:51+08:00">2021-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">C++笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>构造函数一般采用初始化列表的方式进行表示</p>
+<p>例如</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Person(<span class="built_in">string</span> n, <span class="built_in">string</span> s) : name(n), sex(s) &#123;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">string</span> name;</span><br><span class="line">    <span class="built_in">string</span> sex;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>构造函数还可以这样</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Person(<span class="built_in">string</span> n, <span class="built_in">string</span> s)&#123;</span><br><span class="line">        name = n;</span><br><span class="line">        sex = s;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">string</span> name;</span><br><span class="line">    <span class="built_in">string</span> sex;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这两种方式虽然在大多数情况下结果相同,但其底层原理不相同,初始化列表的方式,相当于在对象刚被创建出时就对其进行初始化,而第二种方式,是在对象被创建后再对其进行赋值.可以这么理解,第二种方式放弃了对对象的初始化,而采用的赋值的方式,在C++标准中,一般是采用初始化列表的方式来书写构造函数,同时这样书写效率也更加高.</p>
+<p>这里补充一下初始化列表的好处,当声明的对象是常量对象的时候,如果采用赋值的方式是没法对对象的值进行修改的,而初始化列标相当于直接对常量对象进行初始化,是可以接受的,用常用数据类型来解释的话就是这样:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">10</span> <span class="comment">// this is right;</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> j;</span><br><span class="line">j = <span class="number">10</span>; <span class="comment">//error 常量无法被修改或赋值</span></span><br></pre></td></tr></table></figure>
+
+<p>这里对之前的内容做一点补充,在编写程序的过程中遇到了这样的问题.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">now</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> year;</span><br><span class="line">    <span class="keyword">int</span> mon;</span><br><span class="line">    <span class="keyword">int</span> date;</span><br><span class="line">    now(<span class="keyword">int</span> y, <span class="keyword">int</span> m, <span class="keyword">int</span> d)&#123;</span><br><span class="line">        <span class="keyword">if</span> (y &lt; <span class="number">60</span>)&#123;</span><br><span class="line">            year = y + <span class="number">2000</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            year = y + <span class="number">1900</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        mon = m;</span><br><span class="line">        date = d;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">now ans[<span class="number">10</span>];</span><br></pre></td></tr></table></figure>
+
+<p>当我进行以上操作的时候vscode不会报错,但在编译过程中出现了这样的错误</p>
+<p><img src="C:\Users\hxy\Desktop\杂七杂八\image-20210325105513084.png" alt="image-20210325105513084"></p>
+<p>这里做一下解释,因为重写了一个构造函数,所以原本的空构造被弃用了,但当我声明一个类数组的时候,是不需要传入参数的,所以这里需要自己手动添加一个不需要任何参数的构造函数.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">now() = <span class="keyword">default</span>;</span><br><span class="line"><span class="comment">//or now()&#123;&#125;;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>当子类继承父类之后,想要对子类进行初始化的化,无法采用初始化列表的方式对父类的成员变量进行初始化,初始化的过程只有在变量刚刚被分配内存之后才能进行,而子类的构造函数是优先执行父类的默认构造函数,然后再执行子类的构造函数,这时父类已经被分配好了内存,想要修改值,只能采用赋值的方式.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Identity</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">operMenu</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">string</span> m_Name;</span><br><span class="line">	<span class="built_in">string</span> m_Pwd;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> :</span> <span class="keyword">public</span> Identity &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//Student(int id, const string&amp; name, const string&amp; pwd) : m_Id(id), m_Name(name), m_Pwd(pwd);</span></span><br><span class="line">	<span class="comment">//错误,父类已经被初始化了.</span></span><br><span class="line">    Student(<span class="keyword">int</span> id, <span class="keyword">const</span> <span class="built_in">string</span>&amp; name, <span class="keyword">const</span> <span class="built_in">string</span>&amp; pwd) : m_Id(id)&#123;</span><br><span class="line">        m_Name = name;</span><br><span class="line">        m_Pwd = pwd;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">	Student();</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">operMenu</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> m_Id;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+	
+	 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/10/C-Pekora-and-Trampoline/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -328,7 +427,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
