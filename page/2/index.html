@@ -159,6 +159,90 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/24/721div2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
+      <meta itemprop="name" content="Nnnuus">
+      <meta itemprop="description" content="比过程更重要的是结果">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nnnuus's World">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/24/721div2/" class="post-title-link" itemprop="url">721div2</a>
+        </h2>
+
+        <div class="post-meta">
+
+		
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-24 08:57:41 / 修改时间：09:51:53" itemprop="dateCreated datePublished" datetime="2021-05-24T08:57:41+08:00">2021-05-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="A题Problem-A-Codeforces"><a href="#A题Problem-A-Codeforces" class="headerlink" title="A题Problem - A - Codeforces"></a>A题<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1527/problem/A">Problem - A - Codeforces</a></h3><p>题目大意:给定一个数x,求出一个数y使得x&amp;(x-1)&amp;(x-2)&amp;…&amp;y = 0</p>
+<p>做题思路:首先这是一道位运算的题目,为了使x与其他&amp;运算为0,则x上每一位为1的数都应该存在一个在该位上为0的数来进行运算,x的最高位一定为1,那么y最高位必须低于x一位,在当前情况下y的最优解就是其他位上均为1,这样无论如何都能得到一个除最高位为1其他位都为0的数.例如10111和01111,01111 + 1 = 10000,这样经过运算之后就可以得出0.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> t;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> ans[<span class="number">1000000</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> n;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(n)&#123;</span><br><span class="line">            num++;		<span class="comment">//得出最高位数</span></span><br><span class="line">            n&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; (<span class="number">1</span> &lt;&lt; num) - <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;	<span class="comment">//把最高位变成0其他位变成1</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="B题Problem-B1-Codeforces"><a href="#B题Problem-B1-Codeforces" class="headerlink" title="B题Problem - B1 - Codeforces"></a>B题<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1527/problem/B1">Problem - B1 - Codeforces</a></h3><p>题目大意:给定一个只由0和1组成的回文串,让ALICE和BOB对这个串进行操作,有两种合法操作,一种是让其中的一个0变成1,会花费一元钱,还有一种是操作是将串反转,不花费任何费用,且如果该串此时为回文串时不可以进行反转,或者上一轮刚反转过这轮不允许反转,当字串全部变为1时游戏结束,花费少的胜利.<br>做题思路:是一个分析情况的题目,需要从0的个数开始分析,如果是偶数个0,那么ALICE先手,只能先进行一次转换,然后BOB就可以将串进行反转,如果该串只有2个0,那么BOB就可以获得2分的领先,如果0的个数大于2,BOB至少能获得1的领先,所以可以得出结论,偶数0谁后手谁赢.<br>如果是奇数个0,那么必定有一个0在中间,ALICE就可以先手把这个0转换掉,然后自己变成后手,0的个数又为偶数,那么ALICE就必定获胜.<br>补充一下为什么存在偶数0后手一定剩的原因,当只剩下2个0的时候,后手只需要进行一次反转,就可让先手必须进行两次转换,而当0的个数大于2的时候,先手如果将串变成分回文串,后手只需要将串再变为回文串就可以保持原状态继续进行下去.所以偶数0后手必胜.<br>还有特殊情况,就是只存在一个0的时候,这时候ALICE必须进行操作,所以BOB获胜.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">string</span> a;</span><br><span class="line"><span class="keyword">int</span> num;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">int</span> num0 = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;num&gt;&gt;a;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt;num; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] == <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">                num0++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (num0 &gt; <span class="number">1</span> &amp;&amp; num0 % <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;ALICE&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;BOB&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="B2题Problem-B2-Codeforces"><a href="#B2题Problem-B2-Codeforces" class="headerlink" title="B2题Problem - B2 - Codeforces"></a>B2题<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1527/problem/B2">Problem - B2 - Codeforces</a></h3><p>题目大意:B题的升级版,提供的串初始状态不一定是回文串.<br>一直没想出来该怎么算,看了别人的视频才知道的,不得不说别人真的牛.<br>这里给一个上一题没讲的胜利关键条件,两人都需要尽可能的把串还原成回文串,然后再通过调整自己的先后手,来达成胜利.<br>解题思路:这道题需要一定构造案例的能力,我们还是分类讨论,当给的串为回文串的时候,那么同easy版一样,当给定的串为非回文串的时候,那么差异的元素一定是0,如果差异0的个数大于等于3的话,ALICE前三次只需要进行反转就可以取得3分的领先,这样的话即使让出后手也可以取胜,如果差异0的个数等于2的话,ALICE先获得2分的领先,然后先手进行,如果当前0的个数为奇数,根据前面的思路ALICE必胜,如果0的个数为偶数的话,ALICE只需先反转然后再将最后一个差异0变成1,就得到了偶数个0的后手情况,ALICE必胜.<br>当差异0的个数为1的时候,如果0的个数为2,那么就是平局,因为此时串一定是奇数,且中间位置为0,ALICE直接把串变为回文,然后各得一分得到平局的结果,如果0个数大于2,那么如果0为偶数又可以得到奇数0先手,0为奇数则可以得到偶数0后手,ALICE必胜.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">string</span> a;</span><br><span class="line"><span class="keyword">int</span> num;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">int</span> num0 = <span class="number">0</span>, dir = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;num&gt;&gt;a;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i] == <span class="string">&#x27;0&#x27;</span>)num0++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num/<span class="number">2</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i] != a[num-i<span class="number">-1</span>])dir++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (dir &gt;= <span class="number">2</span>)<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;ALICE&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (dir == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (num0 % <span class="number">2</span> &amp;&amp; num0 &gt; <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;ALICE&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;BOB&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (num0 == <span class="number">2</span>)&#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;DRAW&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;ALICE&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="C题Problem-C-Codeforces"><a href="#C题Problem-C-Codeforces" class="headerlink" title="C题Problem - C - Codeforces"></a>C题<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1527/problem/C">Problem - C - Codeforces</a></h3><p>题目大意:给定你一个数字串,求这个串所能构成的所有子串的序列数.<br>序列:当两个元素值相同且顺序(下标)不相同时即构成一个序列.<br>子串:sequence连续的一段子序列(substring子序列可以是按顺序但不连续的)<br>因为当时根本就没读懂题,以为是子序列来写,瞬间就懵了,看了别人的题解理解了思路.核心思想还是一个前缀和.<img src="/2021/05/24/721div2/%E6%97%A0%E6%A0%87%E9%A2%98.png" class="" title="无标题"></p>
+<p>画了个草图来解释一下,因为子序列是在一段序列的前后加减,那么当我们找到两个相等的元素的时候,从前开始进行有a1种选择方式,从后添加又有R-a2+1种方式,我们可以发现,方式的个数就是下标,而且当一个元素已经出现了之后,后面的元素是可以与它进行累加处理的,例如现在有一个a3和a1,a2的值都相等,那么它们都要和a1,a2分别组合一次,因为r-a3+1都是相等的所以结果就是(a1+a2)*(R-a3+1).于是就可以得出这样的代码.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> t, n;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>, <span class="keyword">long</span> <span class="keyword">long</span>&gt;a;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    a.clear();</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> temp, ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;temp;</span><br><span class="line">        <span class="keyword">if</span> (!a.count(temp))&#123;</span><br><span class="line">            a[temp]+=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            ans += a[temp] * (n-i+<span class="number">1</span>);</span><br><span class="line">            a[temp] += i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        solve();        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+	
+	 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/15/%E4%B8%93%E9%A2%98%E4%B8%80%20%E7%AE%80%E5%8D%95%E6%90%9C%E7%B4%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -920,80 +1004,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/10/694div2-B-Strange-List/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
-      <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="比过程更重要的是结果">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nnnuus's World">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/10/694div2-B-Strange-List/" class="post-title-link" itemprop="url">694div2-B. Strange List</a>
-        </h2>
-
-        <div class="post-meta">
-
-		
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-10 09:05:19 / 修改时间：09:19:59" itemprop="dateCreated datePublished" datetime="2021-04-10T09:05:19+08:00">2021-04-10</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="/GfFpxkXelJC8I3t.png" alt="image-20210410090624167.png"></p>
-<p><img src="/VGB2bwdpXyKlCtm.png" alt="image-20210410090706552.png"></p>
-<p>模拟队列,但直接模拟肯定会超时,进行一次分解的操作得到的数据大小仍然等于原数组,模拟时需要注意的是,一定是先一次一次的遍历整个数组,当不能被整除时停下,如果遍历一个元素直到元素不能被整除,这种思路是错的,我就犯了这个错误</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">100005</span>];</span><br><span class="line"><span class="keyword">int</span> b[<span class="number">100005</span>];</span><br><span class="line"><span class="keyword">int</span> t, n, x;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;x;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">            b[i] = a[i];</span><br><span class="line">            ans += a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">while</span>(flag)&#123;</span><br><span class="line">            <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; ++i)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[i] % x == <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    ans += b[i];</span><br><span class="line">                    a[i] /= x;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    flag = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-	
-	 
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1065,7 +1075,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
