@@ -159,6 +159,92 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/12/ABC209/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
+      <meta itemprop="name" content="Nnnuus">
+      <meta itemprop="description" content="比过程更重要的是结果">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nnnuus's World">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/12/ABC209/" class="post-title-link" itemprop="url">ABC209</a>
+        </h2>
+
+        <div class="post-meta">
+
+		
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-07-12 20:32:24 / 修改时间：21:05:12" itemprop="dateCreated datePublished" datetime="2021-07-12T20:32:24+08:00">2021-07-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="A-Counting-atcoder-jp"><a href="#A-Counting-atcoder-jp" class="headerlink" title="A - Counting (atcoder.jp)"></a><a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc209/tasks/abc209_a">A - Counting (atcoder.jp)</a></h3><p>题目大意:给定A,B两个数,求大于等于A小于等于B的共有多少个数.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(x,y,z) for(int x=y; x&lt;=z; ++x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dec(x,y,z) for(int x=y; x&gt;=z; --x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b;</span><br><span class="line">    <span class="keyword">int</span> ans = b-a;</span><br><span class="line">    <span class="keyword">if</span> (ans &lt; <span class="number">0</span>)<span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt;ans+<span class="number">1</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="B-Can-you-buy-them-all-atcoder-jp"><a href="#B-Can-you-buy-them-all-atcoder-jp" class="headerlink" title="B - Can you buy them all? (atcoder.jp)"></a><a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc209/tasks/abc209_b">B - Can you buy them all? (atcoder.jp)</a></h3><p>题目大意:给定n个物品,x块钱,其中商品促销,第偶数个商品优惠一元,求x块钱是否能买到所有物品.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(x,y,z) for(int x=y; x&lt;=z; ++x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dec(x,y,z) for(int x=y; x&gt;=z; --x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">int</span> n, x, a, cur;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;x;</span><br><span class="line">    rep(i,<span class="number">1</span>,n)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a;</span><br><span class="line">        cur+=a;</span><br><span class="line">    &#125;</span><br><span class="line">    cur -= n/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;=cur)<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;No&quot;</span> &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="C-Not-Equal-atcoder-jp"><a href="#C-Not-Equal-atcoder-jp" class="headerlink" title="C - Not Equal (atcoder.jp)"></a><a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc209/tasks/abc209_c">C - Not Equal (atcoder.jp)</a></h3><p>题目大意:给定长度为n的序列,对于序列上的每个数字,你可以选择小于等于当前数字的任意一个数字,从而来构成一个新的序列,新的序列要满足没有重复元素,求有多少种排列方式.</p>
+<p>思路:首先这是一个排列的题目,对于原序列上的数字,数字代表几,就表示当前位上可以选择的元素个数,根据排列的计算公式,n(n-1)(n-2)(n-3)…*1, 这是对于每个位上都有n种可能地结果,对于这题,我们需要对原序列进行一个排序,因为较大的数字,其多出来的元素无法被较小的数字进行选取,而较小的数字是可以被较大数字选取,所以要先对较小的情况进行处理然后再处理将大的情况,再根据公式求解.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(x,y,z) for(int x=y; x&lt;=z; ++x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dec(x,y,z) for(int x=y; x&gt;=z; --x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX = <span class="number">2e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line">ll a[MAX];</span><br><span class="line">ll C;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> now = <span class="number">0</span>;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    rep(i,<span class="number">1</span>, n)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    sort(a+<span class="number">1</span>, a+<span class="number">1</span>+n);</span><br><span class="line">    rep(i,<span class="number">1</span>,n)&#123;</span><br><span class="line">        ans *= (a[i]-now++);</span><br><span class="line">        ans %= mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="D-Collision-atcoder-jp"><a href="#D-Collision-atcoder-jp" class="headerlink" title="D - Collision (atcoder.jp)"></a><a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc209/tasks/abc209_d">D - Collision (atcoder.jp)</a></h3><p>题目大意:给定N个城镇,各城镇之间总共有N-1条路,每条路的长度都相同.现在给出甲乙两人所在的城镇,甲和乙分别从自己的城镇出发前往对方的城镇,两人都按照最短距离来行进,求两人最终是在城镇上相遇还是路上相遇.</p>
+<p>思路:首先这是一个树上问题,因为n个节点只有n-1条边,所以该图一定是一棵树,其次对于两者相遇在哪,实际上是求两城镇之间的最短距离是奇数还是偶数,因为树上的任意两点路径是唯一的所以也就是求该路径的长度.因为输入规模较大,因此对每次输入都进行一次bfs肯定会超时.</p>
+<p>所以我们换一种角度来考虑,因为每条路的权值都相等,且图中不存在环,所以可以直接选取一个节点对整个图进行染色,对于相同颜色的节点,那么它们之间的最短距离一定是偶数,所以在城镇相遇,颜色不同则是路上相遇.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(x,y,z) for(int x=y; x&lt;=z; ++x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dec(x,y,z) for(int x=y; x&gt;=z; --x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX = <span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">bool</span> vis[MAX];</span><br><span class="line"><span class="keyword">int</span> color[MAX];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;e[MAX];</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;q;</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    rep(i, <span class="number">1</span>, n - <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b;</span><br><span class="line">        e[a].push_back(b);</span><br><span class="line">        e[b].push_back(a);</span><br><span class="line">    &#125;</span><br><span class="line">    vis[<span class="number">1</span>] = <span class="literal">true</span>;</span><br><span class="line">    color[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    q.push(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        <span class="keyword">int</span> now = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        rep(i,<span class="number">0</span>,e[now].size()<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (vis[e[now][i]])<span class="keyword">continue</span>;</span><br><span class="line">            vis[e[now][i]] = <span class="literal">true</span>;</span><br><span class="line">            color[e[now][i]] = -color[now];</span><br><span class="line">            q.push(e[now][i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    rep(i, <span class="number">1</span>, m) &#123;</span><br><span class="line">        <span class="keyword">int</span> from, to;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; from &gt;&gt; to;</span><br><span class="line">        <span class="keyword">if</span> (color[from] != color[to]) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Road&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Town&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+	
+	 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/12/732div2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -267,10 +353,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-07-11 13:38:13 / 修改时间：14:08:48" itemprop="dateCreated datePublished" datetime="2021-07-11T13:38:13+08:00">2021-07-11</time>
+              <time title="创建时间：2021-07-11 13:38:13" itemprop="dateCreated datePublished" datetime="2021-07-11T13:38:13+08:00">2021-07-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-12 11:13:17" itemprop="dateModified" datetime="2021-07-12T11:13:17+08:00">2021-07-12</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -308,7 +400,7 @@
 <p>本题出现的一些小细节:vector如果只push_back使用完后一定要进行清除.</p>
 <h3 id="Problem-D-Codeforces"><a href="#Problem-D-Codeforces" class="headerlink" title="Problem - D - Codeforces"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1547/problem/D">Problem - D - Codeforces</a></h3><p>题目大意:现在有一种新的升序规则,该规则规定,当后一个数与前一个数取&amp;时,等于前一个数,就表示该数大于前数.给定一个序列,可以对给定的序列进行^操作,使得操作后的序列满足新升序规则,输出^的操作数.</p>
 <p>思路:首先新的升序规则表示,较大数低位与较小数的所有位上应该相等,置于如何得出答案,我们只需要将理想的升序数与当前数进行^操作就可以,而理想数就是将前一个理想数的所有位全部复制到当前数上,对于第一个数,我们不需要进行^操作,它的理想数就是它本身.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(x,y,z) for(int x = y; x&lt;=z; ++x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dec(x,y,z) for(int x = y; x&gt;=z; --x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">int</span> t;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX = <span class="number">2e5</span>+<span class="number">5</span>;</span><br><span class="line">ll a[MAX];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">        rep(i,<span class="number">1</span>,n)<span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">        ll pre = <span class="number">0</span>;</span><br><span class="line">        rep(i,<span class="number">1</span>,n)&#123;</span><br><span class="line">            ll temp = a[i] | pre;</span><br><span class="line">            pre = temp;</span><br><span class="line">            temp ^= a[i];</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; temp &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(x,y,z) for(int x = y; x&lt;=z; ++x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dec(x,y,z) for(int x = y; x&gt;=z; --x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">int</span> t;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX = <span class="number">2e5</span>+<span class="number">5</span>;</span><br><span class="line">ll a[MAX];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">        rep(i,<span class="number">1</span>,n)<span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">        ll pre = <span class="number">0</span>;</span><br><span class="line">        rep(i,<span class="number">1</span>,n)&#123;</span><br><span class="line">            ll temp = (a[i] | pre)^a[i];</span><br><span class="line">            pre = temp;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; temp &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -965,82 +1057,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/10/720div2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
-      <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="比过程更重要的是结果">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nnnuus's World">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/06/10/720div2/" class="post-title-link" itemprop="url">720div2</a>
-        </h2>
-
-        <div class="post-meta">
-
-		
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-06-10 14:54:24 / 修改时间：15:12:11" itemprop="dateCreated datePublished" datetime="2021-06-10T14:54:24+08:00">2021-06-10</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Problem-A-Codeforces"><a href="#Problem-A-Codeforces" class="headerlink" title="Problem - A - Codeforces"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1521/problem/A">Problem - A - Codeforces</a></h3><p>题目大意:<br>给定两个数A, B.确定能否找出三个不同的数x, y, z满足x + y = z, 且三个数一个要能被A*B整除,另外两个要只能被A整除, 如果找不出来则输出NO.<br>思路:构造题,可以直接考虑这样三个数, A, A(B-1), AB.因为一个数与它邻位的数一定互质,所以这样构造是满足的,我们还需要思考的什么情况是无法找出来的,只看式子的话,是当B=1时不成立,同时也因为当B为1时x, y, z都与B不互质,所以特判一下.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> t;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> x, y;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;x&gt;&gt;y;</span><br><span class="line">        <span class="keyword">if</span> (y == <span class="number">1</span>)<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (y == <span class="number">2</span>)&#123;</span><br><span class="line">                y *= <span class="number">2</span>;		<span class="comment">//防止y = 1</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">long</span> <span class="keyword">long</span> ans = x * y;</span><br><span class="line">            <span class="keyword">long</span> <span class="keyword">long</span> a= x*(y<span class="number">-1</span>);</span><br><span class="line">            <span class="keyword">long</span> <span class="keyword">long</span> b = y;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;YES&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; x &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Problem-B-Codeforces"><a href="#Problem-B-Codeforces" class="headerlink" title="Problem - B - Codeforces"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1521/problem/B">Problem - B - Codeforces</a></h3><p>题目大意:给定一个长度为n的数组,你可以对它进行至多n次变化,在变换后,需要保证数组中任意一对相邻元素互质.变化遵循这样的规律,低于数组中的元素ai, aj, 和你选择的数x, y,当满足min(ai, aj) = min(x, y)时, ai = x, aj = y.<br>思路:也是一道构造题,参考的也是上一题互质的思路,我们只需要将相邻数变成差为1即可,扫描一次,每次将两个数中较大的数变成较小的数+1, 但是我们不能直接从左向右线性扫描例如<br>9 6 3 11 15    经过处理后得到 7 4 4 12 15<br>可以看到,我们每次进行变换之后,都影响到了相邻数原来的结果,为了保证每次操作不会影响之前的排列,我们需要构造一个单调递增的序列,那么我们直接找出数组中最小的数,然后向两边开始构造上升序列,每次进行比较的时候直接与最小数比较这样就不需要考虑别的情况了.<br>9 6 3 11 15 变换后 5 4 3 4 5</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> t, n;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX = <span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">long</span> <span class="keyword">long</span> MAXMAX = <span class="number">1e9</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> a[MAX];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> minmin = MAXMAX+<span class="number">5</span>;	<span class="comment">//最小数是可以等于1e9的</span></span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">            <span class="keyword">if</span> (a[i] &lt; minmin)&#123;</span><br><span class="line">                index = i;</span><br><span class="line">                minmin = a[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; n<span class="number">-1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> temp = minmin;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = index<span class="number">-1</span>; i &gt;= <span class="number">1</span>; i--)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; index &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; i &lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt; minmin &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt;++temp &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        temp = minmin;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = index+<span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; index &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; i &lt;&lt;<span class="string">&quot; &quot;</span> &lt;&lt; minmin&lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; ++temp &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-	
-	 
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1112,7 +1128,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
