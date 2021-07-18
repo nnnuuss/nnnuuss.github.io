@@ -30,7 +30,7 @@
 <meta property="og:description" content="Problem - A - Codeforces题目大意:给定两个数,你可以对两个数进行两种操作,两个数同时加1或者两个数同时减1,求两个数经过若干次操作后的gcd,并求出最小的操作次数. 思路:无论进行多少次操作,两个数的差值都不会改变,那么这个差值就是两个数的gcd,然后只需要使得两个数进行操作后都是差值的倍数就可以了,至于进行多少次操作,只需要求出分别讨论加1和减1的情况,然后取最小值. 1">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-08T07:23:59.000Z">
-<meta property="article:modified_time" content="2021-07-08T08:47:04.039Z">
+<meta property="article:modified_time" content="2021-07-17T01:49:42.932Z">
 <meta property="article:author" content="Nnnuus">
 <meta name="twitter:card" content="summary">
 
@@ -186,10 +186,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-07-08 15:23:59 / 修改时间：16:47:04" itemprop="dateCreated datePublished" datetime="2021-07-08T15:23:59+08:00">2021-07-08</time>
+              <time title="创建时间：2021-07-08 15:23:59" itemprop="dateCreated datePublished" datetime="2021-07-08T15:23:59+08:00">2021-07-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-17 09:49:42" itemprop="dateModified" datetime="2021-07-17T09:49:42+08:00">2021-07-17</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -229,6 +235,15 @@
 <h3 id="Problem-C-Codeforces"><a href="#Problem-C-Codeforces" class="headerlink" title="Problem - C - Codeforces"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1543/problem/C">Problem - C - Codeforces</a></h3><p>题目大意:给定三个字符cmp各自的概率,和一个值v,每次可以选定其中一个字符,当选中的字符为P时不可再选取其他字符,当选取一个字符后,取当前该字符的值和v的较小值temp,然后该字符的概率减少temp,其概率平分到剩余的字符上,如果某个字符概率为0,那么概率不可以分给它,最终抽取的形成的一个字符串,字符串的长度乘以当前的选取的概率就是该种情况的贡献值,求所有可能情况的贡献值之和.</p>
 <p>思路:模拟+爆搜,其实翻译出来题目大意就可以直接写了.</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(x,y,z) for(int x=y;x&lt;=z;++x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dec(x,y,z) for(int x=y;x&gt;=z;--x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">int</span> t;</span><br><span class="line"><span class="keyword">double</span> c, m, p, v;</span><br><span class="line"><span class="keyword">double</span> ans;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b, <span class="keyword">double</span> c, <span class="keyword">double</span> now, <span class="keyword">int</span> num)</span></span>&#123;</span><br><span class="line">    ans += (now*c*num);</span><br><span class="line">    <span class="keyword">if</span> (a &gt; <span class="number">1e-6</span>)&#123;</span><br><span class="line">        <span class="keyword">double</span> temp = min(a, v);</span><br><span class="line">        <span class="keyword">if</span> (b &gt; <span class="number">1e-6</span>)dfs(a-v,b+temp/<span class="number">2</span>,c+temp/<span class="number">2</span>, now*a, num+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">else</span> dfs(a-v, b, c+temp, now*a, num+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (b &gt; <span class="number">1e-6</span>)&#123;</span><br><span class="line">        <span class="keyword">double</span> temp = min(b, v);</span><br><span class="line">        <span class="keyword">if</span> (a &gt; <span class="number">1e-6</span>)dfs(a+temp/<span class="number">2</span>, b-temp, c+temp/<span class="number">2</span>, now*b, num+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">else</span> dfs(a, b-temp, c+temp, now*b, num+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;c&gt;&gt;m&gt;&gt;p&gt;&gt;v;</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        dfs(c,m,p,<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.12f\n&quot;</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Problem-D1-Codeforces"><a href="#Problem-D1-Codeforces" class="headerlink" title="Problem - D1 - Codeforces"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1543/problem/D1">Problem - D1 - Codeforces</a></h3><p>题目大意:现定义了一种不进位的加法,用于运算k位制的两数相加,easy版本k==2,二进制的不进位加法,即异或操作.给定一个密码x,其范围在[0,n-1]之间,每次你可以进行一次猜测,如果猜测值正确,那么会输出一个1,否则会输出一个0,并且原密码x变为x+y(这里的+表示不进位加法),最多猜测n次.</p>
+<p>思路:对于二进制下的操作,所有的加法都可以进行异或来代替,那么只需要从0开始枚举,我们只需要使得每次密码x变换时,猜测的y也跟着变换就可以枚举出来了.</p>
+<p>设当前猜测的密码为y 初始密码为x</p>
+<p>第一次 y = 0                    如果错误当前密码z=x+0</p>
+<p>第二次 y = 0+1                如果错误当前密码z=x+0+0+1 = x+1</p>
+<p>第三次 y = 1+2                如果错误当前密码z=x+1+1+2 = x+2</p>
+<p>第n次   y =  n-2+n-1        上一次变换后的密码z=x+n-2</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(x,y,z) for(int x=y;x&lt;=z;++x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dec(x,y,z) for(int x=y;x&gt;=z;--x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">int</span> t, n, k;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;k;</span><br><span class="line">        <span class="keyword">int</span> y = <span class="number">0</span>;</span><br><span class="line">        rep(i,<span class="number">0</span>,n<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; (y^i) &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            y = i;</span><br><span class="line">            fflush(<span class="built_in">stdout</span>);</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;x;</span><br><span class="line">            <span class="keyword">if</span> (x == <span class="number">1</span>)<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -312,7 +327,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-A-Codeforces"><span class="nav-number">1.</span> <span class="nav-text">Problem - A - Codeforces</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-B-Codeforces"><span class="nav-number">2.</span> <span class="nav-text">Problem - B - Codeforces</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-C-Codeforces"><span class="nav-number">3.</span> <span class="nav-text">Problem - C - Codeforces</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-A-Codeforces"><span class="nav-number">1.</span> <span class="nav-text">Problem - A - Codeforces</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-B-Codeforces"><span class="nav-number">2.</span> <span class="nav-text">Problem - B - Codeforces</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-C-Codeforces"><span class="nav-number">3.</span> <span class="nav-text">Problem - C - Codeforces</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-D1-Codeforces"><span class="nav-number">4.</span> <span class="nav-text">Problem - D1 - Codeforces</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -328,7 +343,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -341,7 +356,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

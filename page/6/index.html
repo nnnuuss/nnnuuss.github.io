@@ -159,6 +159,258 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/16/A-Split-it/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
+      <meta itemprop="name" content="Nnnuus">
+      <meta itemprop="description" content="比过程更重要的是结果">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nnnuus's World">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/16/A-Split-it/" class="post-title-link" itemprop="url">A. Split it!</a>
+        </h2>
+
+        <div class="post-meta">
+
+		
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-16 13:33:24 / 修改时间：13:40:44" itemprop="dateCreated datePublished" datetime="2021-03-16T13:33:24+08:00">2021-03-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>A. Split it!</p>
+<p>time limit per test</p>
+<p>1 second</p>
+<p>memory limit per test</p>
+<p>256 megabytes</p>
+<p>input</p>
+<p>standard input</p>
+<p>output</p>
+<p>standard output</p>
+<p>Kawashiro Nitori is a girl who loves competitive programming.</p>
+<p>One day she found a string and an integer. As an advanced problem setter, she quickly thought of a problem.</p>
+<p>Given a string s and a parameter kk, you need to check if there exist k+1k+1 non-empty strings a1,a2…,ak+1, such that</p>
+<p>s=a1+a2+…+ak+ak+1+R(ak)+R(ak−1)+…+R(a1).</p>
+<p>Here ++ represents concatenation. We define R(x)R(x) as a reversed string xx. For example R(abcd)=dcba. Note that in the formula above the part R(ak+1) is intentionally skipped.</p>
+<p>Input</p>
+<p>The input consists of multiple test cases. The first line contains a single integer t (1≤t≤1001≤t≤100)  — the number of test cases. The description of the test cases follows.</p>
+<p>The first line of each test case description contains two integers n, k (1≤n≤100, 0≤k≤⌊n2⌋)  — the length of the string s and the parameter k.</p>
+<p>The second line of each test case description contains a single string s of length n, consisting of lowercase English letters.</p>
+<p>Output</p>
+<p>For each test case, print “YES” (without quotes), if it is possible to find a1,a2,…,ak+1, and “NO” (without quotes) otherwise.</p>
+<p>You can print letters in any case (upper or lower).</p>
+<p>题目大意较为简单这里就不翻译了,主要补充一下回文串的判断方式,方便以后字符串相关的题目做题,用substr函数取相关的字符串两份,一份reverse之后与原字符串进行比较.</p>
+<p>这题主要是思维,补上代码.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="built_in">string</span> a, b, c;</span><br><span class="line">    <span class="keyword">while</span> (n--)&#123;</span><br><span class="line">        <span class="keyword">int</span> size, k;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;size&gt;&gt;k;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a;</span><br><span class="line">        <span class="keyword">if</span> (size &lt;= k * <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (k == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;YES&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        b = a.substr(<span class="number">0</span>, k);</span><br><span class="line">        c = a.substr(size-k, k);	<span class="comment">//只取单个字符作为一项结果,因为这样留给中间字串的容错更大.</span></span><br><span class="line">        reverse(b.begin(), b.end());</span><br><span class="line">        <span class="keyword">if</span> (c == b)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;YES&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>补充一下substr的用法,该函数是从第一个参数的下表位置开始截取,截取长度为第二个参数,在从后往前进行字串截取的时候需要注意.</p>
+
+      
+    </div>
+
+    
+    
+    
+	
+	 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/15/Composite/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
+      <meta itemprop="name" content="Nnnuus">
+      <meta itemprop="description" content="比过程更重要的是结果">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nnnuus's World">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/15/Composite/" class="post-title-link" itemprop="url">Composite</a>
+        </h2>
+
+        <div class="post-meta">
+
+		
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-15 10:04:34 / 修改时间：10:14:26" itemprop="dateCreated datePublished" datetime="2021-03-15T10:04:34+08:00">2021-03-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">C++笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>设计模式之一:Composite</p>
+<p>以文件管理系统为例,作为一个文件夹它是一个容器,它既需要容纳文件夹类型,又需要容纳文件类型,但容器所能容纳的数据类型只能有一种,那么我们便采用Composite的设计模式:Delegation(委托) + Inheritance(继承)</p>
+<p>设计一个父类,然后让容器去继承父类,文件也继承父类,容器中所存储的数据类型就为父类的指针,对于容器而言,需要父类存在一个添加其它文件或文件夹的虚函数,来供子类的Composite进行改写,add的参数也是一个父类指针,这里附上课件的源码:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Component</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> value;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Component(<span class="keyword">int</span> val) &#123;value = val&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Componten*)</span></span>&#123;&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//父类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Primitive</span> :</span> <span class="keyword">public</span> Component</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Primitive(<span class="keyword">int</span> val):Component(val)&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//文件</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Composite</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;Component*&gt;c;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Composite(<span class="keyword">int</span> val):Component(val)&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(Component* element)</span></span>&#123;<span class="comment">//添加的元素可以为容器可以为文件</span></span><br><span class="line">        c.push_back(element);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//容器类</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+	
+	 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/15/3-14%E6%A8%A1%E6%8B%9F%E8%B5%9B%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
+      <meta itemprop="name" content="Nnnuus">
+      <meta itemprop="description" content="比过程更重要的是结果">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nnnuus's World">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/15/3-14%E6%A8%A1%E6%8B%9F%E8%B5%9B%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">3.14模拟赛记录</a>
+        </h2>
+
+        <div class="post-meta">
+
+		
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-15 08:43:54 / 修改时间：09:16:21" itemprop="dateCreated datePublished" datetime="2021-03-15T08:43:54+08:00">2021-03-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>C.Tip to be Palindrome</p>
+<p>题目大意,给定一个初始消费n,对n*0.2四舍五入为小费,如果小费加上初始消费不为回文数字,则继续增加小费直到为回文数字,输出最小花费.</p>
+<p>题目较为简单,补充两个知识点,在比赛的时候想了很久:</p>
+<p>1.回文数字的判断</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> a = n;</span><br><span class="line">	<span class="keyword">while</span> (a)&#123;</span><br><span class="line">		temp = temp * <span class="number">10</span> + a % <span class="number">10</span>;</span><br><span class="line">		a /= <span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> temp == n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.如何对浮点型数据四舍五入</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> tips = <span class="built_in">ceil</span>(total * <span class="number">0.2</span>);</span><br><span class="line"><span class="comment">//ceil就是对浮点型数据进行四舍五入得到整数</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>B.g2g c u l8r</p>
+<p>题目大意:</p>
+<p>先给一串字符表,每个字符对应的有相应的句子,然后再给输入数据,如果存在字符表中的字符,就将其替换为对应的句子.</p>
+<p>难点,字符串的读取,这里我学到了部分知识</p>
+<p>1.cin读取字符串时只能读取到’ ‘以前或’\n’以前如果想要读取一行需要使用getline(cin, s).</p>
+<p>2.面对字符串的读取要时刻注意空格,而且换行也需要注意,getchar()会读取一切键盘上的输入,如何设计合理的getchar()来对数据进行过滤是一个难事.</p>
+<p>3.map的使用更加熟悉,面对字典的问题大都用map来进行解决.</p>
+<p>附上std</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="built_in">string</span>&gt;mp;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="built_in">string</span> s1,s2,s3;</span><br><span class="line">    <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;s1;</span><br><span class="line">        getchar();</span><br><span class="line">        getline(<span class="built_in">cin</span>,s2);</span><br><span class="line">        mp[s1]=s2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;m;</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        getline(<span class="built_in">cin</span>,s3);</span><br><span class="line">        s3+=<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">int</span> p=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">string</span> s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s3.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s3[i]==<span class="string">&#x27; &#x27;</span>||s3[i]==<span class="string">&#x27;\n&#x27;</span>)&#123;</span><br><span class="line">                <span class="built_in">string</span> t=s3.substr(p,i-p);</span><br><span class="line">                <span class="keyword">if</span>(mp.count(t))&#123;</span><br><span class="line">                    s+=mp[t];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    s+=t;</span><br><span class="line">                    &#125;</span><br><span class="line">                s+=s3[i];</span><br><span class="line">                p=i+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;s;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+	
+	 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/13/const%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E8%A1%A5%E5%85%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -816,211 +1068,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/10/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
-      <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="比过程更重要的是结果">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nnnuus's World">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/10/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">构造函数</a>
-        </h2>
-
-        <div class="post-meta">
-
-		
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-10 20:23:41" itemprop="dateCreated datePublished" datetime="2021-03-10T20:23:41+08:00">2021-03-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-28 13:58:51" itemprop="dateModified" datetime="2021-03-28T13:58:51+08:00">2021-03-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">C++笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>构造函数一般采用初始化列表的方式进行表示</p>
-<p>例如</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Person(<span class="built_in">string</span> n, <span class="built_in">string</span> s) : name(n), sex(s) &#123;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">string</span> name;</span><br><span class="line">    <span class="built_in">string</span> sex;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>构造函数还可以这样</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Person(<span class="built_in">string</span> n, <span class="built_in">string</span> s)&#123;</span><br><span class="line">        name = n;</span><br><span class="line">        sex = s;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">string</span> name;</span><br><span class="line">    <span class="built_in">string</span> sex;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>这两种方式虽然在大多数情况下结果相同,但其底层原理不相同,初始化列表的方式,相当于在对象刚被创建出时就对其进行初始化,而第二种方式,是在对象被创建后再对其进行赋值.可以这么理解,第二种方式放弃了对对象的初始化,而采用的赋值的方式,在C++标准中,一般是采用初始化列表的方式来书写构造函数,同时这样书写效率也更加高.</p>
-<p>这里补充一下初始化列表的好处,当声明的对象是常量对象的时候,如果采用赋值的方式是没法对对象的值进行修改的,而初始化列标相当于直接对常量对象进行初始化,是可以接受的,用常用数据类型来解释的话就是这样:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">10</span> <span class="comment">// this is right;</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> j;</span><br><span class="line">j = <span class="number">10</span>; <span class="comment">//error 常量无法被修改或赋值</span></span><br></pre></td></tr></table></figure>
-
-<p>这里对之前的内容做一点补充,在编写程序的过程中遇到了这样的问题.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">now</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> year;</span><br><span class="line">    <span class="keyword">int</span> mon;</span><br><span class="line">    <span class="keyword">int</span> date;</span><br><span class="line">    now(<span class="keyword">int</span> y, <span class="keyword">int</span> m, <span class="keyword">int</span> d)&#123;</span><br><span class="line">        <span class="keyword">if</span> (y &lt; <span class="number">60</span>)&#123;</span><br><span class="line">            year = y + <span class="number">2000</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            year = y + <span class="number">1900</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        mon = m;</span><br><span class="line">        date = d;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">now ans[<span class="number">10</span>];</span><br></pre></td></tr></table></figure>
-
-<p>当我进行以上操作的时候vscode不会报错,但在编译过程中出现了这样的错误</p>
-<p><img src="C:\Users\hxy\Desktop\杂七杂八\image-20210325105513084.png" alt="image-20210325105513084"></p>
-<p>这里做一下解释,因为重写了一个构造函数,所以原本的空构造被弃用了,但当我声明一个类数组的时候,是不需要传入参数的,所以这里需要自己手动添加一个不需要任何参数的构造函数.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">now() = <span class="keyword">default</span>;</span><br><span class="line"><span class="comment">//or now()&#123;&#125;;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>当子类继承父类之后,想要对子类进行初始化的化,无法采用初始化列表的方式对父类的成员变量进行初始化,初始化的过程只有在变量刚刚被分配内存之后才能进行,而子类的构造函数是优先执行父类的默认构造函数,然后再执行子类的构造函数,这时父类已经被分配好了内存,想要修改值,只能采用赋值的方式.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Identity</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">operMenu</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">string</span> m_Name;</span><br><span class="line">	<span class="built_in">string</span> m_Pwd;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> :</span> <span class="keyword">public</span> Identity &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//Student(int id, const string&amp; name, const string&amp; pwd) : m_Id(id), m_Name(name), m_Pwd(pwd);</span></span><br><span class="line">	<span class="comment">//错误,父类已经被初始化了.</span></span><br><span class="line">    Student(<span class="keyword">int</span> id, <span class="keyword">const</span> <span class="built_in">string</span>&amp; name, <span class="keyword">const</span> <span class="built_in">string</span>&amp; pwd) : m_Id(id)&#123;</span><br><span class="line">        m_Name = name;</span><br><span class="line">        m_Pwd = pwd;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">	Student();</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">operMenu</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> m_Id;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-	
-	 
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/10/C-Pekora-and-Trampoline/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
-      <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="比过程更重要的是结果">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nnnuus's World">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/10/C-Pekora-and-Trampoline/" class="post-title-link" itemprop="url">C. Pekora and Trampoline</a>
-        </h2>
-
-        <div class="post-meta">
-
-		
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-10 18:55:31" itemprop="dateCreated datePublished" datetime="2021-03-10T18:55:31+08:00">2021-03-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-13 14:16:52" itemprop="dateModified" datetime="2021-03-13T14:16:52+08:00">2021-03-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>难度:div2 rating:1700</p>
-<p>time limit per test2 seconds</p>
-<p>memory limit per test256 megabytes</p>
-<p>inputstandard input</p>
-<p>outputstandard output</p>
-<p>There is a trampoline park with n trampolines in a line. The i-th of which has strength Si.</p>
-<p>Pekora can jump on trampolines in multiple passes. She starts the pass by jumping on any trampoline of her choice.</p>
-<p>If at the moment Pekora jumps on trampoline i, the trampoline will launch her to position i+Si, and Si will become equal to max(Si−1,1). In other words, Si will decrease by 1, except of the case Si=1, when Si will remain equal to 1.</p>
-<p>If there is no trampoline in position i+Si, then this pass is over. Otherwise, Pekora will continue the pass by jumping from the trampoline at position i+Si by the same rule as above.</p>
-<p>Pekora can’t stop jumping during the pass until she lands at the position larger than n (in which there is no trampoline). Poor Pekora!</p>
-<p>Pekora is a naughty rabbit and wants to ruin the trampoline park by reducing all Si to 1. What is the minimum number of passes she needs to reduce all Si to 1?</p>
-<p>Input</p>
-<p>The first line contains a single integer t (1≤t≤500) — the number of test cases.</p>
-<p>The first line of each test case contains a single integer n (1≤n≤5000) — the number of trampolines.</p>
-<p>The second line of each test case contains n integers S1,S2,…,Sn (1≤Si≤109), where Si is the strength of the i-th trampoline.</p>
-<p>It’s guaranteed that the sum of n over all test cases doesn’t exceed 5000.</p>
-<p>Output</p>
-<p>For each test case, output a single integer — the minimum number of passes Pekora needs to do to reduce all Si to 1.</p>
-<p>题目大意:有n个蹦床,每个蹦床有一个数据a[i],每次落在一个蹦床上之后,会被弹到a[i] + i的位置,同时a[i]的值会减小一,直到弹出的距离外没有蹦床,这一次弹跳结束,求最少需要多少次弹跳.</p>
-<p>考点:贪心, dp;</p>
-<p>解题思路:首先为了保证都能减少到1,则要从输入的数据中值不为1的开始进行弹跳,直到该值减为1为止,采用模拟的方式来模拟弹跳步骤,时间复杂度过高,超时.所以这里需要利用动态规划的方式,来进行状态的转移.</p>
-<p>首先我们用数组a来存储弹跳的距离,再用数组c来存储该蹦床被踩过的次数,当一个蹦床的弹跳距离不为1的时候那么他会在区间[i+2,min(蹦床数量, i + a[i]]产生贡献值,即这些蹦床都会被踩到,然后再往后迭代进行遍历,当一个蹦床被踩得次数大于蹦床本身的弹跳距离之后,先进行之前的贡献值计算,然后将多余的次数转移到i+1处,一直迭代下去,直到结束.计算次数值时,只需要遍历两个数组,用蹦床本身的弹跳距离减去被踩过的次数就可以,当踩过次数过多时,不能取复数,要以0为准.max(a[i] - s[i] - 1, 0).</p>
-<p>代码如下:</p>
- <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">  <span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  <span class="keyword">long</span> c[<span class="number">5001</span>];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">long</span> a[<span class="number">5001</span>];</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line">​    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">while</span> (n--)&#123;</span><br><span class="line"></span><br><span class="line">​      <span class="keyword">bool</span> same = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">​      <span class="keyword">int</span> num;</span><br><span class="line"></span><br><span class="line">​      ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">​      <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;num);</span><br><span class="line"></span><br><span class="line">​        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= num; i++)&#123;</span><br><span class="line"></span><br><span class="line">​          a[i] = c[i] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">​        &#125;</span><br><span class="line"></span><br><span class="line">​         <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= num; i++)&#123;</span><br><span class="line"></span><br><span class="line">​          <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line"></span><br><span class="line">​        &#125;</span><br><span class="line"></span><br><span class="line">​        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= num; i++)&#123;</span><br><span class="line"></span><br><span class="line">​          <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">2</span>; j &lt;= min((<span class="keyword">long</span>)num, i + a[i]); j++)&#123;</span><br><span class="line"></span><br><span class="line">​            c[j]++;</span><br><span class="line"></span><br><span class="line">​          &#125;</span><br><span class="line"></span><br><span class="line">​        &#125;</span><br><span class="line"></span><br><span class="line">​        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= num; i++)&#123;</span><br><span class="line"></span><br><span class="line">​          <span class="keyword">if</span> (c[i] &gt;= a[i]) c[i+<span class="number">1</span>] += (c[i] - a[i] + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">​        &#125;</span><br><span class="line"></span><br><span class="line">​        <span class="keyword">for</span> (<span class="keyword">long</span> <span class="keyword">long</span> i = <span class="number">0</span>; i &lt;= num; i++)&#123;</span><br><span class="line"></span><br><span class="line">​          ans += max((<span class="keyword">long</span>)<span class="number">0</span>, a[i]-c[i]<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">​        &#125;</span><br><span class="line"></span><br><span class="line">​        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">​      &#125;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">​    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-	
-	 
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1088,7 +1139,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1101,7 +1152,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
