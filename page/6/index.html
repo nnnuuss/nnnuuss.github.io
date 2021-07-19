@@ -159,6 +159,105 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/16/B-Max-and-Mex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
+      <meta itemprop="name" content="Nnnuus">
+      <meta itemprop="description" content="比过程更重要的是结果">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nnnuus's World">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/16/B-Max-and-Mex/" class="post-title-link" itemprop="url">B. Max and Mex</a>
+        </h2>
+
+        <div class="post-meta">
+
+		
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-16 14:27:34 / 修改时间：14:31:00" itemprop="dateCreated datePublished" datetime="2021-03-16T14:27:34+08:00">2021-03-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>B. Max and Mex</p>
+<p>time limit per test</p>
+<p>1 second</p>
+<p>memory limit per test</p>
+<p>256 megabytes</p>
+<p>input</p>
+<p>standard input</p>
+<p>output</p>
+<p>standard output</p>
+<p>You are given a multiset S initially consisting of n distinct non-negative integers. A multiset is a set, that can contain some elements multiple times.</p>
+<p>You will perform the following operation k times:</p>
+<ul>
+<li>Add the element ⌈a+b2⌉ (rounded up) into S, where a=mex(S) and b=max(S)b=max(S). If this number is already in the set, it is added again.</li>
+</ul>
+<p>Here max of a multiset denotes the maximum integer in the multiset, and mexof a multiset denotes the smallest non-negative integer that is not present in the multiset. For example:</p>
+<ul>
+<li>mex⁡({1,4,0,2})=3;</li>
+<li>mex⁡({2,5,1})=0.</li>
+</ul>
+<p>Your task is to calculate the number of <strong>distinct</strong> elements in S after k operations will be done.</p>
+<p>Input</p>
+<p>The input consists of multiple test cases. The first line contains a single integer tt (1≤t≤100) — the number of test cases. The description of the test cases follows.</p>
+<p>The first line of each test case contains two integers n, k (1≤n≤1e5, 0≤k≤1e9) — the initial size of the multiset S and how many operations you need to perform.</p>
+<p>The second line of each test case contains n <strong>distinct</strong> integers a1,a2,…,ana1,a2,…,an (0≤ai≤1e9) — the numbers in the initial multiset.</p>
+<p>It is guaranteed that the sum of n over all test cases does not exceed 105105.</p>
+<p>Output</p>
+<p>For each test case, print the number of <strong>distinct</strong> elements in S after kk operations will be done.</p>
+<p>数学题这里唯一需要注意的就是,当mex == size时,会一直执行插入,这时需要直接输出size+num否则会超时</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">double</span>&gt;s;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> size, num;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;size&gt;&gt;num;</span><br><span class="line">        <span class="keyword">double</span> maxd = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">double</span> mind = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">long</span> <span class="keyword">long</span> i = <span class="number">0</span>; i &lt; size; ++i)&#123;</span><br><span class="line">            <span class="keyword">double</span> temp;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;temp;</span><br><span class="line">            maxd = max(temp, maxd);</span><br><span class="line">            s.insert(temp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">double</span> i = <span class="number">0</span>; i &lt; <span class="number">1e9</span>; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span> (!s.count(i))&#123;</span><br><span class="line">                mind = i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (mind == size)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; size + num &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            s.clear();</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (num--)&#123;</span><br><span class="line">            <span class="keyword">long</span> <span class="keyword">long</span> temp = <span class="built_in">ceil</span>((maxd + mind) / <span class="number">2</span>);</span><br><span class="line">            <span class="keyword">if</span> (s.count(temp))<span class="keyword">break</span>;</span><br><span class="line">            s.insert(temp);</span><br><span class="line">            maxd= max((<span class="keyword">long</span> <span class="keyword">long</span>)maxd, temp);</span><br><span class="line">            size++;</span><br><span class="line">            <span class="keyword">if</span> (temp == mind)&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">double</span> i = temp; i &lt; <span class="number">1e9</span>; ++i)&#123;</span><br><span class="line">                    <span class="keyword">if</span> (!s.count(i))&#123;</span><br><span class="line">                        mind = i;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; size &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        s.clear();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+	
+	 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/16/A-Split-it/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -950,124 +1049,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/11/C-Minimum-Ties/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
-      <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="比过程更重要的是结果">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nnnuus's World">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/11/C-Minimum-Ties/" class="post-title-link" itemprop="url">C. Minimum Ties</a>
-        </h2>
-
-        <div class="post-meta">
-
-		
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-11 11:18:36" itemprop="dateCreated datePublished" datetime="2021-03-11T11:18:36+08:00">2021-03-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-13 14:16:46" itemprop="dateModified" datetime="2021-03-13T14:16:46+08:00">2021-03-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>C. Minimum Ties</p>
-<p>time limit per test</p>
-<p>1 second</p>
-<p>memory limit per test</p>
-<p>256 megabytes</p>
-<p>input</p>
-<p>standard input</p>
-<p>output</p>
-<p>standard output</p>
-<p>A big football championship will occur soon! n teams will compete in it, and each pair of teams will play exactly one game against each other.</p>
-<p>There are two possible outcomes of a game:</p>
-<ul>
-<li>the game may result in a tie, then both teams get 1 point;</li>
-<li>one team might win in a game, then the winning team gets 3 points and the losing team gets 0 points.</li>
-</ul>
-<p>The score of a team is the number of points it gained during all games that it played.</p>
-<p>You are interested in a hypothetical situation when all teams get the same score at the end of the championship. A simple example of that situation is when all games result in ties, but you want to minimize the number of ties as well.</p>
-<p>Your task is to describe a situation (choose the result of each game) so that all teams get the same score, and the number of ties is the minimum possible.</p>
-<p>Input</p>
-<p>The first line contains one integer t (1≤t≤100) — the number of test cases.</p>
-<p>Then the test cases follow. Each test case is described by one line containing one integer n (2≤n≤100) — the number of teams.</p>
-<p>Output</p>
-<p>For each test case, print n(n−1)/2 integers describing the results of the games in the following order: the first integer should correspond to the match between team 1 and team 2, the second — between team 1 and team 3, then 1 and 4, …, 1 and n, 2 and 3, 2 and 4, …, 2 and n, and so on, until the game between the team n−1 and the team n.</p>
-<p>The integer corresponding to the game between the team x and the team y should be 11 if xx wins, −1−1 if y wins, or 0 if the game results in a tie.</p>
-<p>All teams should get the same score, and the number of ties should be the minimum possible. If there are multiple optimal answers, print any of them. It can be shown that there always exists a way to make all teams have the same score.</p>
-<p>题目大意:存在n个队伍,每两个队伍要进行一次比赛,比赛的结果有两种情况</p>
-<p>1.双方平局,则各得一分.</p>
-<p>2.一方获胜,获胜方获得3分,另一方不得分.</p>
-<p>求如何能以最少的平局情况下使得所有队伍的分数都相同.</p>
-<p>考点:思维,数学.</p>
-<p>解题思路:首先我们看题目的给的数据规模可以得知,数据规模较小,可以直接模拟来做,我们用一个数组来存储比赛的结果,数组的下标表示两边的队伍,那么当一个队伍赢了之后,与它进行比赛的队伍就要输,即当i对j赢了,j对i就输了.同时为了保证平局的次数最小,我们分两类情况来考虑:</p>
-<p>1.每个队伍的对手为偶数个.</p>
-<p>这种情况只需要每个队伍输赢各占一半就可以完成目标,不需要平局的情况.</p>
-<p>2.每个队伍的对手为奇数个.</p>
-<p>这种情况只需要每个队伍平局一场便可以成为第1种情况.</p>
-<p>顺着这个思路我们可以写出如下的代码.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 1000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">while</span> (n--)&#123;</span><br><span class="line">        <span class="keyword">int</span> num;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;num;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">100</span>; j++)&#123;</span><br><span class="line">                a[i][j] = MAX;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> ((num - <span class="number">1</span>) % <span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> ave = (num - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= num; i++)&#123;</span><br><span class="line">                <span class="keyword">int</span> win = <span class="number">0</span>, loss = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= num; j++)&#123;</span><br><span class="line">                    <span class="keyword">if</span> (i == j)<span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">if</span> (a[i][j] == MAX)&#123;</span><br><span class="line">                        <span class="keyword">if</span> (win &lt; ave)&#123;</span><br><span class="line">                            a[i][j] = <span class="number">1</span>;</span><br><span class="line">                            a[j][i] = <span class="number">-1</span>;</span><br><span class="line">                            win++;</span><br><span class="line">                        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (loss &lt;ave)&#123;</span><br><span class="line">                            a[i][j] = <span class="number">-1</span>;</span><br><span class="line">                            a[j][i] = <span class="number">1</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (a[i][j] == <span class="number">1</span>)&#123;</span><br><span class="line">                        win++;</span><br><span class="line">                    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (a[i][j] == <span class="number">-1</span>)&#123;</span><br><span class="line">                        loss++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> ave = (num<span class="number">-2</span>)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= num; i++)&#123;</span><br><span class="line">                <span class="keyword">int</span> win = <span class="number">0</span>, loss = <span class="number">0</span>, tie = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= num; j++)&#123;</span><br><span class="line">                    <span class="keyword">if</span> (i == j)<span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">if</span> (a[i][j] == MAX)&#123;</span><br><span class="line">                        <span class="keyword">if</span> (tie == <span class="number">0</span>)&#123;</span><br><span class="line">                            a[i][j] = <span class="number">0</span>;</span><br><span class="line">                            a[j][i] = <span class="number">0</span>;</span><br><span class="line">                            tie++;</span><br><span class="line">                        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (win &lt; ave)&#123;</span><br><span class="line">                            a[i][j] = <span class="number">1</span>;</span><br><span class="line">                            a[j][i] = <span class="number">-1</span>;</span><br><span class="line">                            win++;</span><br><span class="line">                        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (loss &lt;ave)&#123;</span><br><span class="line">                            a[i][j] = <span class="number">-1</span>;</span><br><span class="line">                            a[j][i] = <span class="number">1</span>;</span><br><span class="line">                            loss++;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (a[i][j] == <span class="number">1</span>)&#123;</span><br><span class="line">                        win++;</span><br><span class="line">                    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (a[i][j] == <span class="number">-1</span>)&#123;</span><br><span class="line">                        loss++;</span><br><span class="line">                    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (a[i][j] == <span class="number">0</span>)&#123;</span><br><span class="line">                        tie++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= num; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt;= num; j++)&#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; a[i][j] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里需要提到的一点</p>
-<p>应该把判断平局提到优先级最高的判断,因为无论是对于特殊情况:人数为2的处理,还是其他情况,如果把平局判断到最后的话,那么最后一个队伍就不得不和所有的队伍平局,这样得到的结果必然是不正确的.</p>
-<p>其次是每运算一次数据需要进行初始化.</p>
-
-      
-    </div>
-
-    
-    
-    
-	
-	 
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1139,7 +1120,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
