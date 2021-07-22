@@ -425,7 +425,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/05/Effective-C-Notes/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/05/Effective-C++-Notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
@@ -439,7 +439,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/05/Effective-C-Notes/" class="post-title-link" itemprop="url">Effective C++ Notes</a>
+            <a href="/2021/04/05/Effective-C++-Notes/" class="post-title-link" itemprop="url">Effective C++ Notes</a>
         </h2>
 
         <div class="post-meta">
@@ -458,7 +458,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-23 14:58:16" itemprop="dateModified" datetime="2021-04-23T14:58:16+08:00">2021-04-23</time>
+                <time title="修改时间：2021-07-22 18:52:17" itemprop="dateModified" datetime="2021-07-22T18:52:17+08:00">2021-07-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -481,7 +481,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Effective-Learning-Notes"><a href="#Effective-Learning-Notes" class="headerlink" title="Effective Learning Notes"></a>Effective Learning Notes</h1><h2 id="chapter1让自己习惯C"><a href="#chapter1让自己习惯C" class="headerlink" title="chapter1让自己习惯C++"></a>chapter1让自己习惯C++</h2><h3 id="条款01-视C-为一个语言联邦"><a href="#条款01-视C-为一个语言联邦" class="headerlink" title="条款01:视C++为一个语言联邦"></a>条款01:视C++为一个语言联邦</h3><p>​    C++之所以强大,究其根本是因为C++提供了多种多样的编程思想和编程方法,它既可以是C,从底层一步一步实现;也可以像现在大火的其他高级语言一样object oriented;除此之外,它还提供了template,供你最大限度地提升代码复用性,还有C++最强大的库,Standard Template Library,STL的出现为我们的编码提供了不少的便利,它允许我们只去思考程序的设计思路,帮我们减轻具体的实现部分;正是C++的这四部分组成使我们的编程思路的到扩展,随时可以在4种模式之间进行切换,以便最好的实现你的目标.</p>
+          <h1 id="Effective-C-Learning-Notes"><a href="#Effective-C-Learning-Notes" class="headerlink" title="Effective C++ Learning Notes"></a>Effective C++ Learning Notes</h1><h2 id="chapter1让自己习惯C"><a href="#chapter1让自己习惯C" class="headerlink" title="chapter1让自己习惯C++"></a>chapter1让自己习惯C++</h2><h3 id="条款01-视C-为一个语言联邦"><a href="#条款01-视C-为一个语言联邦" class="headerlink" title="条款01:视C++为一个语言联邦"></a>条款01:视C++为一个语言联邦</h3><p>​    C++之所以强大,究其根本是因为C++提供了多种多样的编程思想和编程方法,它既可以是C,从底层一步一步实现;也可以像现在大火的其他高级语言一样object oriented;除此之外,它还提供了template,供你最大限度地提升代码复用性,还有C++最强大的库,Standard Template Library,STL的出现为我们的编码提供了不少的便利,它允许我们只去思考程序的设计思路,帮我们减轻具体的实现部分;正是C++的这四部分组成使我们的编程思路的到扩展,随时可以在4种模式之间进行切换,以便最好的实现你的目标.</p>
 <h3 id="条款02-尽可能地使用const-enum-inline替换-define"><a href="#条款02-尽可能地使用const-enum-inline替换-define" class="headerlink" title="条款02:尽可能地使用const, enum, inline替换#define"></a>条款02:尽可能地使用const, enum, inline替换#define</h3><p>​    宏定义在编码过程中具有很重要的作用,尤其是#define,你可以指定一个内容,让编译器在编译之前就对其进行替换,比较常见的做法是将一些显而易见的常量用#define进行处理</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PI 3.1415926</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 1000000009</span></span><br></pre></td></tr></table></figure>
 
@@ -540,130 +540,6 @@
 
 <p>当进行了自我赋值这样的操作之后,原本需要进行拷贝的这份数据被delete了,所以后面的操作都是对一个空的字符串进行操作,所以在自我赋值的时候需要先进行自我检测.</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(to_copy == (*<span class="keyword">this</span>))&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>-&gt;a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-	
-	 
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/05/Effective-C++-Notes/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
-      <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="比过程更重要的是结果">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nnnuus's World">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/05/Effective-C++-Notes/" class="post-title-link" itemprop="url">Effective C++ Notes</a>
-        </h2>
-
-        <div class="post-meta">
-
-		
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-05 14:16:09" itemprop="dateCreated datePublished" datetime="2021-04-05T14:16:09+08:00">2021-04-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-11 09:36:32" itemprop="dateModified" datetime="2021-04-11T09:36:32+08:00">2021-04-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">C++学习笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Effective-Learning-Notes"><a href="#Effective-Learning-Notes" class="headerlink" title="Effective Learning Notes"></a>Effective Learning Notes</h1><h2 id="chapter1让自己习惯C"><a href="#chapter1让自己习惯C" class="headerlink" title="chapter1让自己习惯C++"></a>chapter1让自己习惯C++</h2><h3 id="条款01-视C-为一个语言联邦"><a href="#条款01-视C-为一个语言联邦" class="headerlink" title="条款01:视C++为一个语言联邦"></a>条款01:视C++为一个语言联邦</h3><p>​    C++之所以强大,究其根本是因为C++提供了多种多样的编程思想和编程方法,它既可以是C,从底层一步一步实现;也可以像现在大火的其他高级语言一样object oriented;除此之外,它还提供了template,供你最大限度地提升代码复用性,还有C++最强大的库,Standard Template Library,STL的出现为我们的编码提供了不少的便利,它允许我们只去思考程序的设计思路,帮我们减轻具体的实现部分;正是C++的这四部分组成使我们的编程思路的到扩展,随时可以在4种模式之间进行切换,以便最好的实现你的目标.</p>
-<h3 id="条款02-尽可能地使用const-enum-inline替换-define"><a href="#条款02-尽可能地使用const-enum-inline替换-define" class="headerlink" title="条款02:尽可能地使用const, enum, inline替换#define"></a>条款02:尽可能地使用const, enum, inline替换#define</h3><p>​    宏定义在编码过程中具有很重要的作用,尤其是#define,你可以指定一个内容,让编译器在编译之前就对其进行替换,比较常见的做法是将一些显而易见的常量用#define进行处理</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PI 3.1415926</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 1000000009</span></span><br></pre></td></tr></table></figure>
-
-<p>​    这样处理固然没错,但是如果在程序执行阶段产生报错,那么错误只会提示3.1415926出现错误,或是1000000009出现错误,因为宏定义是在编译之前进行的处理,所以在编辑器上你甚至都不能定位到底是哪里出了问题.为了实现宏定义的功能,并且不增加程序额外的内存开销,我们采用const或是enum来进行处理.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="number">3.1415926</span></span><br><span class="line"><span class="keyword">enum</span> ENUM&#123;</span><br><span class="line">    MOD = <span class="number">1000000009</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>​    同时采用const和enum的还有另一个好处,因为宏定义是不存在作用域的,它永远是一个global,但有些时候我们只需要一个常量在自己的作用域中有作用,所以#define在这些方面显然不能胜任.<br>这里进行一点class种静态常量的补充,因为对const取址是合法的,但是一个优秀的编辑器不会为const分配对应的内存,所以如果需要取址,那么在类中进行了声明以后,一定要在类外进行定义,这样才能给对应的常量分配内存,但是如果不需要取址,那么const在使用时就相当于一个被套上了作用域的#define,你可以尽情的使用它,虽然它并不是一个拥有一块内存的对象.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">5</span>;	<span class="comment">//已经进行了声明,你可以直接使用除了取址</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> A::a;	<span class="comment">//划分内存</span></span><br><span class="line"><span class="comment">//const int A::a = 4; error,a在声明时已经确立了自己的值,不能进行修改</span></span><br></pre></td></tr></table></figure>
-
-<p>enum和#define更加接近,如果你有时不需要对常量进行取址,就可以采用enum.</p>
-<p>#define还有一种玩法,就是用宏定义来替换代码块例如</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX(a, b) a &gt; b ? a : b</span></span><br></pre></td></tr></table></figure>
-
-<p>​    这种方式尽管本身提高了程序的效率,且减少了编码量,但它给程序本身带了的潜在破坏是无法预估的,因为宏定义并不是函数,不存在作用域的问题,你传进去的值如果进行了修改,那么原本的一份就是修改了,没办法进行回调.当然CPP的设计者也做了类似的考虑,如何能既不影响的程序为了调用函数而进行的额外开销,而又不丧失函数自己的作用域呢,inline函数便是一个解决方案,当一个函数被声明为inline时,它会向编译器发送一个请求,在编译的过程中,将inline函数展开,扩充为一段代码,拥有和函数同样的功能,却不需要采用中断的方式去调用函数.</p>
-<h3 id="条款03-尽可能地使用const"><a href="#条款03-尽可能地使用const" class="headerlink" title="条款03:尽可能地使用const"></a>条款03:尽可能地使用const</h3><p>​    const关键字的用意是修饰变量,使其获得常量属性,比较常见的用法上面已经提过了,用const来声明一个常量,const其实还没底层const和顶层const,顶层sonst一般指指针的const</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *pa = &amp;a;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> temp = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *pc = &amp;temp;	<span class="comment">//底层const</span></span><br><span class="line"><span class="keyword">int</span>* <span class="keyword">const</span> cpa = &amp;a;	<span class="comment">//顶层const</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>* <span class="keyword">const</span> = &amp;temp;	<span class="comment">//两种const都具备</span></span><br></pre></td></tr></table></figure>
-
-<p>​    底层const就是所谓的使指向的数据类型为const,表示指向的常量数据类型,而顶层const是修饰指针,使指针无法进行修改指向,this指针其实就是一个顶层const的指针,因为它是一个编译器编译时创建的一个指向当前对象的指针,你不允许对它进行更改,否则程序会发生很可怕的事.</p>
-<p>​    除了这些const,我们还需要注意const在一个class设计中的应用,在class种,一个成员函数是可以被声明为const类型的,不用我多说,你应该也能猜到,这个const修饰的是this指针,并且作为一个底层const</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;&#125;;</span><br><span class="line">&#125;;</span><br><span class="line">Base a;</span><br><span class="line">a.func(<span class="number">3</span>);</span><br><span class="line">a.func(<span class="number">3</span>, <span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
-
-<p>​    上面的例子便是解释这一现象,每个成员函数都有一个这么一个隐式参数this指针,当采用const修饰函数后,this指向的对象就成为了const类型了.如何设计const是一个很伤脑筋的事情,一般来说,我们鼓励一个函数在不需要更改内置成员属性的时候就将其修饰为const,例如写,检索这一类的操作,而且const函数存在一个向上兼容的属性,因为一个底层const指针可以去指向一个非常量的对象,和其它指针一样,如果一个对象本身就是一个常量,那不对其进行修改是本职工作,但如果一个对象并不是一个常量,那么不修改它本身,对象也不会异议,所以在逻辑无误的情况下,尽可能地使用const也可以减少代码的重复.<br>这里又不得不提到另一种情况,对于一个对象如果即存在const类型和非const类型的重载,(this指针的属性不同,形参不同故可以重载)当一个对象调用时编译器会怎么取舍呢?编译器的做法是如果一个对象为常量对象,那么就只调用const成员函数,如果一个对象为非常量,那么只调用对应的非const版本,编译器在这时还是很老实本分的,不会做多余的操作.<br>不要以为上面的情形并不常见,对于string容器,[]运算符的重载就面临着这样的问题.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> a;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; a[<span class="number">0</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-
-<p>​    对于写这一操作不需要进行修改,那么直接用常量类型返回引用即可,但是对a[0]进行修改之后,就得采用非常量的类型返回引用.<br>提到const还需要知道,c++中参数传递一般都是尽可能地采用const by reference,既保证效率又不会影像数据本身.</p>
-<p>​    const成员函数的限制还很多,这里我们举一个例子,当你调用一个const成员函数时,这个函数内又调用了一个非const的成员函数,那么这是不允许的,这个非const成员函数不能保证数据不被修改,所以被大成员函数拒绝,但是反过来则是成立,不过这里需要做一个类型转换,我目前不是很会,以后再补充.</p>
-<h3 id="条款04-确定对象在使用之前已被初始化"><a href="#条款04-确定对象在使用之前已被初始化" class="headerlink" title="条款04:确定对象在使用之前已被初始化"></a>条款04:确定对象在使用之前已被初始化</h3><p>​    这条看起来很常见,几乎所有人都知道,当一个对象被声明之后,它只是获得了一块内存,但内存上存储的值是随机的,如果不进行初始化就直接使用,那你可能要每次面临不同的bug,还摸不着头脑.<br>我们更加需要注意的是继承关系下,对象的初始化.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>&#123;</span></span><br><span class="line">    Base() = <span class="keyword">default</span>;</span><br><span class="line">    Base(<span class="keyword">int</span> a):m_a(a)&#123;&#125;;</span><br><span class="line">    <span class="keyword">int</span> m_a;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Drived</span> :</span> <span class="keyword">public</span> Base&#123;</span><br><span class="line">    Drived(<span class="keyword">int</span> b):m_b(b)&#123;&#125;;</span><br><span class="line">    <span class="keyword">int</span> m_b;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function">Base <span class="title">b</span><span class="params">(<span class="number">2</span>)</span></span>;</span><br><span class="line"><span class="function">Drived <span class="title">d</span><span class="params">(<span class="number">3</span>)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>​    请注意上面这段代码,对于一个Base对象,我们可以轻松的对它进行初始化,但是对于一个Drived对象,我们却无法对其父类的private成员进行初始化,尽管我们本身并没有这样的想法,因为我们不能直接通过Drived来对父类的private进行修改,唯一的办法是通过父类的构造函数,将已有参数向上传递,来达到初始化的目的.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>&#123;</span></span><br><span class="line">    Base() = <span class="keyword">default</span>;</span><br><span class="line">    Base(<span class="keyword">int</span> a)&#123;m_a = a;&#125;;</span><br><span class="line">    <span class="keyword">int</span> m_a;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Drived</span> :</span> <span class="keyword">public</span> Base&#123;</span><br><span class="line">    Drived(<span class="keyword">int</span> b, <span class="keyword">int</span> a):m_b(b)&#123;Base(a)&#125;;</span><br><span class="line">    <span class="keyword">int</span> m_b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>​    ok,这就是oo关系下的初始化处理了,不过还有一点需要补充,为什么我这里采用了赋值的方式来进行构造呢?初始化列标不是更快更好吗?但是你需要的是,在声明了一个Drived对象后,先调用了Base的空构造函数,这时Base里面的成员已经被声明出来了,而初始化列表只能在对象还未被声明时才能使用,为了程序能够进行,我们需要适当的变通.</p>
-<h2 id="chapter2构造-析构-赋值运算"><a href="#chapter2构造-析构-赋值运算" class="headerlink" title="chapter2构造/析构/赋值运算"></a>chapter2构造/析构/赋值运算</h2><h3 id="条款05-了解C-默默编写并调用那些函数"><a href="#条款05-了解C-默默编写并调用那些函数" class="headerlink" title="条款05:了解C++默默编写并调用那些函数"></a>条款05:了解C++默默编写并调用那些函数</h3><p>当我们定义了一个类,C++会为这个类编写这样几个默认的函数:<br>1.default构造函数.<br>2.default析构函数.<br>3.copy构造函数.<br>4.赋值函数.</p>
-<p>​    C++编写这些函数其实很好理解,一个数据类型声明了肯定需要能够创建出来,所以需要一个构造函数,即使它是空的,但实际上如果不需要对class内部数据在初始化时赋值,或者class不含指针,那么空构造函数无疑不会对程序造成影响,析构函数亦是如此,当一个object被销毁时,需要释放对应的资源,如果简简单单的是编译器内置的资源,那么直接释放就可以,编译器知道如何释放这些,但是当一个class被创建时,编译器其实不是很懂你在释放资源时到底要采取怎么样的方式,但是需要对资源进行释放,所以空析构函数被创建了出来.</p>
-<p>​    copy构造函数主要是在声明一个新对象的时候调用,它会将用来拷贝的对象内部的数据,一个不差的拷贝到新对象上,赋值函数则是作用于一个已经被创建的对象身上,然后将拷贝对象的数据全部拷贝到自己身上,赋值函数一般是对=运算符进行重载,返回一个指向object自己的引用.这些都是由编译器自己提供的,我们一般称之为浅拷贝.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span>&#125;;</span><br><span class="line">A a;</span><br><span class="line">A b = a;	<span class="comment">//拷贝构造函数</span></span><br><span class="line">A c;</span><br><span class="line">c = a;		<span class="comment">//赋值函数</span></span><br></pre></td></tr></table></figure>
-
-<p>​    浅拷贝有很多坏处,首先是class存在指针的情况,浅拷贝只会拷贝指针的值,所以其实并没有多出一块内存,只是多了一个指针,后续在使用这块内存时,会导致牵一发而动全身.<br>​    其次是,浅拷贝是不支持一个引用的数据类型的,如果一个class的构造函数提供了以引用来进行构造的话,那么是不能通过简单的赋值运算的,因为浅拷贝只会做数据的拷贝,但是引用不能被改变指向的,所以这种用法编译器会报错.<br>​    这里可以得知引用于指针对于浅拷贝的区别,聪明的编译器虽然知道一个引用就是封装好的指针,但是它不会为引用额外开辟一块指针大小的内存,从这种结果论其实也可以回推(因为其实引用是指针常量,其实不考虑后面的解释,编译器也是无法通过的)得到这种赋值运算是不合法的,因为根本没有内存来接收数据.<br>​    同时这里不建议采用引用的方式来进行构造函数的编写,如果采用引用的方式,那么当传入值为一个数值时而非一个变量,则必须采用pasy by reference to const,但这影响了后续对object中数据的修改,所以不是一种好选择.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="built_in">string</span>&amp; Name, <span class="keyword">const</span> <span class="keyword">int</span>&amp; T);</span><br><span class="line">    </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">string</span>&amp; name;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> a = <span class="string">&quot;123&quot;</span>;</span><br><span class="line"><span class="built_in">string</span> b = <span class="string">&quot;456&quot;</span>;</span><br><span class="line"><span class="function">A <span class="title">c</span><span class="params">(a, <span class="number">1</span>)</span></span>;</span><br><span class="line"><span class="function">A <span class="title">d</span><span class="params">(b, <span class="number">4</span>)</span></span>;</span><br><span class="line">c = d;	<span class="comment">//Error</span></span><br></pre></td></tr></table></figure>
-
-<p>​    在c = d这一句编译器无能为力了,它自己编写的赋值运算不能改变引用的指向,也不可以去修改const int的data.</p>
-<p>​    除此之外还有一种情况赋值运算和拷贝构造函数也会出错,那就是当一个Base类的将copy assignment声明为private,那么Derived类就无权利调用Base类的copy assignment,那么也就无法拷贝Base类的数据,所以也就不符合编译器自己编写的准则,然后它就会把这个问题交给程序员来解决.</p>
-<h3 id="条款06-若不想使用编译器自动生成的函数就应该明确拒绝"><a href="#条款06-若不想使用编译器自动生成的函数就应该明确拒绝" class="headerlink" title="条款06:若不想使用编译器自动生成的函数就应该明确拒绝."></a>条款06:若不想使用编译器自动生成的函数就应该明确拒绝.</h3><p>​    我们在设计一个class的时候,有时候应该想到,有些编译器默认编写的函数是不够好的,如浅拷贝,但是我们本身并不需要这样的拷贝函数,而且更麻烦的是编译器为我们编写的函数都是public的,所以我们需要在一开始就拒绝编译器对其的自作多情,对于不需要的函数在后面加上delete,当然这是C++11的做法,本书提供了别的做法,例如将函数声明为private,并继承这样的一个Base类,但这并不够简洁和易懂,所以不过多说明.</p>
-<h3 id="条款07-为多态基类声明virtual析构函数"><a href="#条款07-为多态基类声明virtual析构函数" class="headerlink" title="条款07:为多态基类声明virtual析构函数"></a>条款07:为多态基类声明virtual析构函数</h3><p>为了提高编程的重复性,我们会设计一个factory函数,它进行一系列操作,创建一个Derived类对象,最后返回一个Base类型的指针,这个指针指向相应的Derived类.指针接受这样的转型,这个不需要我们多强调,就像通过你的父亲可以找到你一样,Derived类可以被Base类所指,但是一般采用了这样的factory函数,对象会被开辟在heap处,那么如何释放就是关键,如果Base类采用普通的析构函数,那么显然是无能为力的,因为指针是指向Base类的,Delete Base指针,只会调用Base类的析构函数,但这个Base类并不知道要怎样析构除Base以外的内容,所以我们需要将析构函数声明为virtual,这样在释放Base指针时,就会转向相应的Derived类的析构函数.<br>只要一个Class含有virtual函数,那么就应该将析构函数声明为virtual函数,这是为了避免资源泄漏的情况发生,但是当一个Class不含virtual函数时.虚析构就显得多余且不必要,因为一个虚函数需要Class额外承担一个vptr的内存,这显然是无意义的,所以请牢记这一点.</p>
-<p>并非所有的Base Class都是为了提供接口来处理Derived类,所以请牢记,当且仅当Base Class中有虚函数时,才声明虚析构函数.<br>纯虚函数是不能被实例化的,如果在使用过程中,纯虚函数仍然会被使用,需要给它提供一个声明,例如Base类中的纯虚析构函数,虽然你的本意是提醒自己不忘记改写子类的析构函数,但是Base类的析构函数仍然会被调用,所以需要提供一个声明来帮助实例化.</p>
-<h3 id="条款08-别让异常逃离析构函数"><a href="#条款08-别让异常逃离析构函数" class="headerlink" title="条款08:别让异常逃离析构函数"></a>条款08:别让异常逃离析构函数</h3>
       
     </div>
 
@@ -1108,6 +984,109 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/29/C-Ball-in-Berland/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
+      <meta itemprop="name" content="Nnnuus">
+      <meta itemprop="description" content="比过程更重要的是结果">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nnnuus's World">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/29/C-Ball-in-Berland/" class="post-title-link" itemprop="url">C. Ball in Berland</a>
+        </h2>
+
+        <div class="post-meta">
+
+		
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-29 21:46:43 / 修改时间：21:57:52" itemprop="dateCreated datePublished" datetime="2021-03-29T21:46:43+08:00">2021-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>C. Ball in Berland</p>
+<p>time limit per test</p>
+<p>2 seconds</p>
+<p>memory limit per test</p>
+<p>256 megabytes</p>
+<p>input</p>
+<p>standard input</p>
+<p>output</p>
+<p>standard output</p>
+<p>At the school where Vasya is studying, preparations are underway for the graduation ceremony. One of the planned performances is a ball, which will be attended by pairs of boys and girls.</p>
+<p>Each class must present two couples to the ball. In Vasya’s class, aa boys and bb girls wish to participate. But not all boys and not all girls are ready to dance in pairs.</p>
+<p>Formally, you know kk possible one-boy-one-girl pairs. You need to choose two of these pairs so that no person is in more than one pair.</p>
+<p>For example, if a=3a=3, b=4b=4, k=4k=4 and the couples (1,2), (1,3), (2,2), (3,4) are ready to dance together (in each pair, the boy’s number comes first, then the girl’s number), then the following combinations of two pairs are possible (not all possible options are listed below):</p>
+<ul>
+<li>(1,3) and (2,2);</li>
+<li>(3,4) and (1,3);</li>
+</ul>
+<p>But the following combinations are not possible:</p>
+<ul>
+<li>(1,3) and (1,2) — the first boy enters two pairs;</li>
+<li>(1,2)and (2,2) — the second girl enters two pairs;</li>
+</ul>
+<p>Find the number of ways to select two pairs that match the condition above. Two ways are considered different if they consist of different pairs.</p>
+<p>Input</p>
+<p>The first line contains one integer t (1≤t≤10e4) — the number of test cases. Then t test cases follow.</p>
+<p>The first line of each test case contains three integers aa, bb and kk (1≤a,b,k≤2⋅1051≤a,b,k≤2⋅105) — the number of boys and girls in the class and the number of couples ready to dance together.</p>
+<p>The second line of each test case contains kk integers a1,a2,…ak (1≤ai≤a), where ai is the number of the boy in the pair with the number i.</p>
+<p>The third line of each test case contains kk integers b1,b2,…bk (1≤bi≤b), where bi is the number of the girl in the pair with the number i.</p>
+<p>It is guaranteed that the sums of aa, bb, and kk over all test cases do not exceed 2⋅10e5</p>
+<p>It is guaranteed that each pair is specified at most once in one test case.</p>
+<p>题目大意:在输入的表示男女的序列号中,找出尽可能多的pair,且pair不会发生人员冲突.</p>
+<p>解题思路,用一个map来存储男女配对的关系,然后用一个数组来表示某编号男生或女生可以进行的组合数,在每次计算时,先选定一个pair,然后对这个pair之后的进行计算,用pair剩余数减去重叠数,即当前男生可以组成的pair数和当前女生可以组成的pair数最后再加上当前的pair数,每次运算后,对应的男生编号的可形成的pair数就减一,女生也相同,同时该种组合也会减小.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxN = <span class="number">2e6</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> t;</span><br><span class="line"><span class="keyword">int</span> boy[maxN];</span><br><span class="line"><span class="keyword">int</span> girl[maxN];</span><br><span class="line"><span class="keyword">int</span> b[maxN];</span><br><span class="line"><span class="keyword">int</span> g[maxN];</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;, <span class="keyword">int</span>&gt;mp;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">int</span> n, i, j;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;i&gt;&gt;j&gt;&gt;n;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;b[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;g[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)&#123;</span><br><span class="line">            mp[&#123;b[i], g[i]&#125;]++;</span><br><span class="line">            boy[b[i]]++;</span><br><span class="line">            girl[g[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            mp[&#123;b[i], g[i]&#125;]--;</span><br><span class="line">            boy[b[i]]--;</span><br><span class="line">            girl[g[i]]--;</span><br><span class="line">            <span class="keyword">long</span> <span class="keyword">long</span> pre = n - i - <span class="number">1</span>;</span><br><span class="line">            ans += pre - girl[g[i]] - boy[b[i]] + mp[&#123;b[i],g[i]&#125;];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        mp.clear();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+	
+	 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1179,7 +1158,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1192,7 +1171,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
