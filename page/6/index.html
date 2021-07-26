@@ -159,6 +159,101 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/18/B-Eastern-Exhibition/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
+      <meta itemprop="name" content="Nnnuus">
+      <meta itemprop="description" content="比过程更重要的是结果">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nnnuus's World">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/18/B-Eastern-Exhibition/" class="post-title-link" itemprop="url">B. Eastern Exhibition</a>
+        </h2>
+
+        <div class="post-meta">
+
+		
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-18 13:57:09 / 修改时间：14:06:07" itemprop="dateCreated datePublished" datetime="2021-03-18T13:57:09+08:00">2021-03-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>B. Eastern Exhibition</p>
+<p>time limit per test</p>
+<p>1 second</p>
+<p>memory limit per test</p>
+<p>256 megabytes</p>
+<p>input</p>
+<p>standard input</p>
+<p>output</p>
+<p>standard output</p>
+<p>You and your friends live in n houses. Each house is located on a 2D plane, in a point with integer coordinates. There might be different houses located in the same point. The mayor of the city is asking you for places for the building of the Eastern exhibition. You have to find the number of places (points with integer coordinates), so that the summary distance from all the houses to the exhibition is minimal. The exhibition can be built in the same point as some house. The distance between two points (x1,y1) and (x2,y2) is |x1−x2|+|y1−y2|, where |x| is the absolute value of x.</p>
+<p>Input</p>
+<p>First line contains a single integer t (1≤t≤1000) — the number of test cases.</p>
+<p>The first line of each test case contains a single integer n (1≤n≤1000). Next n lines describe the positions of the houses (xi,yi) (0≤xi,yi≤109).</p>
+<p>It’s guaranteed that the sum of all n does not exceed 1000.</p>
+<p>Output</p>
+<p>For each test case output a single integer - the number of different positions for the exhibition. The exhibition can be built in the same point as some house.</p>
+<p>题目大意:在一个坐标轴里,给你n个点找到与每个点距离和最小的点,距离的计算公式为x1 - x2 + y1 - y2,n个点和找到的点都可以互相重复.</p>
+<p>考点:思维</p>
+<p>因为计算距离是直接横竖坐标相减相加,那么就可以把问题抽象到两条坐标轴上解决,先找到x轴上距离每个点距离和最小的点,再找到y轴上距离每个点距离和最小的点,然后两个坐标交会的区域就是最小距离.</p>
+<p>当所给点数为奇数个时,中位数只有一个,所以只能是一个点.</p>
+<p>当所给点数为偶数个时,中位数就有两个,那么两中位数之间的所有点数都是距离最小点,综合横竖坐标,就是两个坐标上的中位数区域的组合.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> ll = <span class="keyword">long</span> <span class="keyword">long</span>;</span><br><span class="line"><span class="keyword">int</span> t, n;</span><br><span class="line">ll a[<span class="number">1005</span>] ,b[<span class="number">1005</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">        ll ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)&#123;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;a[i]&gt;&gt;b[i];</span><br><span class="line">        &#125;</span><br><span class="line">        sort(a, a+n);</span><br><span class="line">        sort(b, b+n);</span><br><span class="line">        <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; ((a[n / <span class="number">2</span>] - a[n / <span class="number">2</span> - <span class="number">1</span>] + <span class="number">1</span>) * (b[n / <span class="number">2</span>] - b[n/<span class="number">2</span> - <span class="number">1</span>] + <span class="number">1</span>) ) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>补上题解链接:<a target="_blank" rel="noopener" href="https://blog.csdn.net/rookie636/article/details/113856822">https://blog.csdn.net/rookie636/article/details/113856822</a></p>
+
+      
+    </div>
+
+    
+    
+    
+	
+	 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/17/conversion-function/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -967,102 +1062,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/11/%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E4%B8%8E%E8%BF%94%E5%9B%9E%E5%80%BC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
-      <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="比过程更重要的是结果">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nnnuus's World">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/11/%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E4%B8%8E%E8%BF%94%E5%9B%9E%E5%80%BC/" class="post-title-link" itemprop="url">参数传递与返回值</a>
-        </h2>
-
-        <div class="post-meta">
-
-		
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-11 14:53:23" itemprop="dateCreated datePublished" datetime="2021-03-11T14:53:23+08:00">2021-03-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-13 14:18:06" itemprop="dateModified" datetime="2021-03-13T14:18:06+08:00">2021-03-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">C++笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>函数被定义出来,有时候需要对其进行参数的传递,才能保证函数的正常作用,那么什么样的方式才是参数传递的最优解呢,有下面几种优先级的判断:</p>
-<p>向函数中传参的时候优先考虑以引用的方式进行传递,引用相当于一个封装好的指针,无论传的数据类型占多少字节,引用都只会传四个字节进去,即记录数据存在的地址,所以在当数据类型非常大的时候,用引用的方式传递会有很好的效果.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Person</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="built_in">string</span> name;</span><br><span class="line">    <span class="built_in">string</span> sex;</span><br><span class="line">    <span class="built_in">string</span> address;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//Person类型所占空间很大,如果进行值传递需要将Person类型进行一次复制,所以将耗费非常多的时间和内存</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(Person&amp; a)</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>对于不需要对数据本身就行修改的函数,应养成良好习惯,在函数的引用传递时用const进行传递.</p>
-<p>从编译器的角度来解读这个问题,当一个函数不以const进行传递的时候,这个函数内部是可能存在对引用数据的修改的,即使你在函数体内部没有进行这样的修改,但编译器无法得知你的函数是否进行了相关操作,当你传递一个常量对象来调用这个函数的时候,编译器只能报错.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Person A;</span><br><span class="line"><span class="keyword">const</span> Person B;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">funb</span><span class="params">(Person&amp; a)</span></span>&#123;</span><br><span class="line"><span class="comment">//空的函数体不对a进行修改</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">funb(A);	<span class="comment">//正确</span></span><br><span class="line">funb(B);	<span class="comment">//错误,编译器无法确认是否会修改</span></span><br></pre></td></tr></table></figure>
-
-<p>Tips:</p>
-<p>引用传递的实质上传的是一个四个字节的指针,如果你的函数需要单独的传一个字符,或者大小小于一个的指针的数据类型,那么传值的效率可能会比传引用高,但为了减少这些思考,尽量优先考虑pass by conference(to const).</p>
-<p>上面讨论了参数传递的几种方式,下面我们来思考一下返回值的问题,延续之前的思路,当数据类型较大的时候,以引用的方式返回结果,效率会很高,那么是不是返回值也都应该以引用的方式进行返回呢,这里需要分情况讨论,因为以引用返回在有些时候是不适用的.</p>
-<p>这里举一个例子:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Person&amp; <span class="title">funa</span><span class="params">(Person&amp; a,<span class="keyword">const</span> Person&amp; b)</span>	<span class="comment">//b的值不需要进行修改,a的值要进行变动</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	a += b;	<span class="comment">//	这里假使Person类型提供+=的运算符重载</span></span><br><span class="line">	<span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面这种情况是可行的因为在内存当中,本来就存在一块位置是给a的,函数进行的操作是在a的基础上进行的,最终a的值发生变化,返回a.</p>
-<p>但当下面这种情况就不能用引用传递:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Person <span class="title">func</span><span class="params">(Person&amp; a, <span class="keyword">const</span> Person&amp; b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Person c = a + b;</span><br><span class="line">	<span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里不是在原址上进行的运算,两者传进来的都只是一个参数,那么需要创建一个对象,来接收两参数运算得到的结果,如果以引用的方式传递回去,在函数调用完后,创造出来的临时对象c就会被立即销毁,那么引用就指向了一个不存在的地方,编译器就会报错,所以这种情况下只能采用传值的方式,或者将c声明为static变量.</p>
-
-      
-    </div>
-
-    
-    
-    
-	
-	 
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1134,7 +1133,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
