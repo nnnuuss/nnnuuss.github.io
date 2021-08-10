@@ -159,6 +159,85 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/27/101div2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
+      <meta itemprop="name" content="Nnnuus">
+      <meta itemprop="description" content="比过程更重要的是结果">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nnnuus's World">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/27/101div2/" class="post-title-link" itemprop="url">101div2</a>
+        </h2>
+
+        <div class="post-meta">
+
+		
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-27 10:30:33 / 修改时间：12:47:08" itemprop="dateCreated datePublished" datetime="2021-04-27T10:30:33+08:00">2021-04-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>题单链接:<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1469">Dashboard - Educational Codeforces Round 101 (Rated for Div. 2) - Codeforces</a></p>
+<h3 id="A题链接Problem-A-Codeforces"><a href="#A题链接Problem-A-Codeforces" class="headerlink" title="A题链接Problem - A - Codeforces"></a>A题链接<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1469/problem/A">Problem - A - Codeforces</a></h3><p>题目大意:给定一个由’(‘ , ‘)’, ‘?’组成的序列,可以对’?’进行任意替换,判断是否可以得到一个合法的括号序列.<br>感觉思路不是很清晰,思考的是如果有?出现就将其添加到不定符号上,如果右括号的个数大于了左括号加上不定符号数,那么这个序列一定是不符合的,其次是如果序列的长度是奇数,那么也一定不符合,然后又加了两个特判,开头不能是右括号,结尾不能是左括号.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> t;</span><br><span class="line"><span class="built_in">string</span> a;</span><br><span class="line"><span class="keyword">int</span> l, r, f;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        l = r = f = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (a.size() % <span class="number">2</span>)flag = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (a[<span class="number">0</span>] == <span class="string">&#x27;)&#x27;</span> || a[a.size() - <span class="number">1</span>] == <span class="string">&#x27;(&#x27;</span>)flag = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> x : a)&#123;</span><br><span class="line">            <span class="keyword">if</span> (x == <span class="string">&#x27;(&#x27;</span>)&#123;</span><br><span class="line">                l++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (x == <span class="string">&#x27;)&#x27;</span>)&#123;</span><br><span class="line">                r++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                f++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (l + f &lt; r)&#123;</span><br><span class="line">                flag = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;YES&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="B题链接Problem-B-Codeforces"><a href="#B题链接Problem-B-Codeforces" class="headerlink" title="B题链接Problem - B - Codeforces"></a>B题链接<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1469/problem/B">Problem - B - Codeforces</a></h3><p>题目大意:给定两个长度的序列,序列的顺序是原序列的顺序,请还原出一个拥有最大子序列和的原数列,并输出最大子序列和.<br>思路:将两个序列的当前所有元素和相加,然后对两个序列一一枚举,得到最大值,方法比较暴力,但是题目的输入量不大,所以能过.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> t, la, lb;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">105</span>];</span><br><span class="line"><span class="keyword">int</span> b[<span class="number">105</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> temp;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;la;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= la; i++)<span class="built_in">cin</span>&gt;&gt;temp, a[i] = a[i<span class="number">-1</span>] + temp;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;lb;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= lb; i++)<span class="built_in">cin</span>&gt;&gt;temp, b[i] = b[i<span class="number">-1</span>] + temp;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= la; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= lb; j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> data = a[i] + b[j];</span><br><span class="line">                ans = max(ans, data);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="C题链接Problem-C-Codeforces"><a href="#C题链接Problem-C-Codeforces" class="headerlink" title="C题链接Problem - C - Codeforces"></a>C题链接<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1469/problem/C">Problem - C - Codeforces</a></h3><p>待补</p>
+
+      
+    </div>
+
+    
+    
+    
+	
+	 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/25/105div2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -988,83 +1067,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/31/%E4%BD%9C%E7%94%A8%E5%9F%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
-      <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="比过程更重要的是结果">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nnnuus's World">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/31/%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="post-title-link" itemprop="url">作用域</a>
-        </h2>
-
-        <div class="post-meta">
-
-		
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-03-31 15:56:36 / 修改时间：16:05:51" itemprop="dateCreated datePublished" datetime="2021-03-31T15:56:36+08:00">2021-03-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">C++学习笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">100</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = i; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;	<span class="comment">//1 to 10;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在上面的历程中,先定义了一个全局的变量i,然后在for的一个小作用域里又定义了一个i, 那么在小作用域中处理的时候会采用作用域当中的i,而隐藏掉之前的全局变量,这个还是很好理解的,编译器需要尊重程序员的想法,即使程序员在先前有一套规则,那么在这里又重新定义一套规则,必然需要遵守最新的,这样更具时效性.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">char</span> &amp;a)</span></span>&#123;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="built_in">string</span> &amp;a)</span></span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> &amp;a)</span> </span>&#123;&#125;;</span><br><span class="line">    print(<span class="string">&#x27;c&#x27;</span>);	<span class="comment">//print(int(&#x27;c&#x27;))</span></span><br><span class="line">    print(<span class="string">&quot;cc&quot;</span>); <span class="comment">//error,无匹配的类型</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>函数重载同样也遵循着这样一个道理,当在一个新的作用域中重新对函数进行重载,那么在作用域之外的函数重载都会被隐藏,同样是出于对程序员的尊重,至于重载为什么会被隐藏,我不是很清楚,这里给出一个我自己的猜测,后续学习到有关底层实现后再来进行修改,同名的函数依靠着一张指针表来进行维护,表中存储的是每一个重载函数的指针,类似虚表,在不同的作用域中,表会进行更新,如果存在对函数的新重载,就相当于继承下后对父类虚函数的改写,那么表中存储的指针就会进行更改,我觉得大概有相似之处,但不同点在于,虚表可以调用父类未被修改的虚函数,而重载作用域则直接进行整表的隐藏.</p>
-
-      
-    </div>
-
-    
-    
-    
-	
-	 
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1136,7 +1138,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
