@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="迎接命中注定的失败">
+  <meta name="description" content="Just For Fun">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nnnuus&#39;s World">
 <meta property="og:url" content="http://example.com/page/7/index.html">
 <meta property="og:site_name" content="Nnnuus&#39;s World">
-<meta property="og:description" content="迎接命中注定的失败">
+<meta property="og:description" content="Just For Fun">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Nnnuus">
 <meta name="twitter:card" content="summary">
@@ -164,12 +164,188 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/31/%E4%BD%9C%E7%94%A8%E5%9F%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
+      <meta itemprop="name" content="Nnnuus">
+      <meta itemprop="description" content="Just For Fun">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nnnuus's World">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/31/%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="post-title-link" itemprop="url">作用域</a>
+        </h2>
+
+        <div class="post-meta">
+
+		
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-31 15:56:36" itemprop="dateCreated datePublished" datetime="2021-03-31T15:56:36+08:00">2021-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-18 20:55:34" itemprop="dateModified" datetime="2021-08-18T20:55:34+08:00">2021-08-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">C++笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">100</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = i; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;	<span class="comment">//1 to 10;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的历程中,先定义了一个全局的变量i,然后在for的一个小作用域里又定义了一个i, 那么在小作用域中处理的时候会采用作用域当中的i,而隐藏掉之前的全局变量,这个还是很好理解的,编译器需要尊重程序员的想法,即使程序员在先前有一套规则,那么在这里又重新定义一套规则,必然需要遵守最新的,这样更具时效性.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">char</span> &amp;a)</span></span>&#123;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="built_in">string</span> &amp;a)</span></span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> &amp;a)</span> </span>&#123;&#125;;</span><br><span class="line">    print(<span class="string">&#x27;c&#x27;</span>);	<span class="comment">//print(int(&#x27;c&#x27;))</span></span><br><span class="line">    print(<span class="string">&quot;cc&quot;</span>); <span class="comment">//error,无匹配的类型</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>函数重载同样也遵循着这样一个道理,当在一个新的作用域中重新对函数进行重载,那么在作用域之外的函数重载都会被隐藏,同样是出于对程序员的尊重,至于重载为什么会被隐藏,我不是很清楚,这里给出一个我自己的猜测,后续学习到有关底层实现后再来进行修改,同名的函数依靠着一张指针表来进行维护,表中存储的是每一个重载函数的指针,类似虚表,在不同的作用域中,表会进行更新,如果存在对函数的新重载,就相当于继承下后对父类虚函数的改写,那么表中存储的指针就会进行更改,我觉得大概有相似之处,但不同点在于,虚表可以调用父类未被修改的虚函数,而重载作用域则直接进行整表的隐藏.</p>
+
+      
+    </div>
+
+    
+    
+    
+	
+	 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/30/711div2-A-GCD-Sum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
+      <meta itemprop="name" content="Nnnuus">
+      <meta itemprop="description" content="Just For Fun">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nnnuus's World">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/30/711div2-A-GCD-Sum/" class="post-title-link" itemprop="url">711div2 A. GCD Sum</a>
+        </h2>
+
+        <div class="post-meta">
+
+		
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-30 20:23:00 / 修改时间：20:27:50" itemprop="dateCreated datePublished" datetime="2021-03-30T20:23:00+08:00">2021-03-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>A. GCD Sum</p>
+<p>time limit per test</p>
+<p>1 second</p>
+<p>memory limit per test</p>
+<p>256 megabytes</p>
+<p>input</p>
+<p>standard input</p>
+<p>output</p>
+<p>standard output</p>
+<p>The gcdSum of a positive integer is the gcd of that integer with its sum of digits. Formally, gcdSum(x)=gcd(x, sum of digits of x) for a positive integer x. gcd(a,b) denotes the greatest common divisor of a and b — the largest integer d such that both integers a and b are divisible by d.</p>
+<p>For example: gcdSum(762)=gcd(762,7+6+2)=gcd(762,15)=3.</p>
+<p>Given an integer n, find the smallest integer x≥n such that gcdSum(x)&gt;1.</p>
+<p>Input</p>
+<p>The first line of input contains one integer t(1≤t≤104) — the number of test cases.</p>
+<p>Then t lines follow, each containing a single integer n(1≤n≤1018).</p>
+<p>All test cases in one test are different.</p>
+<p>Output</p>
+<p>Output t lines, where the i-th line is a single integer containing the answer to the i-th test case.</p>
+<p>解题思路:一个能被3整除的数字,它的各个位数之和也一定能被3整除,这是一个数学规律,由此可以得到的推论是,我们只需要进行三次gcdsum运算即可,因为在n, n+1, n+2中一定有一个数字被3整除,即一定存在一解,其次我们需要判断这几解中最小的解,代码如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">gcd_sum</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> sum)</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> temp = sum, digitsum = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(temp)&#123;</span><br><span class="line">        digitsum += temp % <span class="number">10</span>;</span><br><span class="line">        temp /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> gcd = __gcd(sum, digitsum);</span><br><span class="line">    <span class="keyword">return</span> gcd;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> t;</span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">        <span class="keyword">if</span> (gcd_sum(n) &gt; <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; n &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (gcd_sum(n+<span class="number">1</span>) &gt; <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; n + <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (gcd_sum(n+<span class="number">2</span>) &gt; <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; n + <span class="number">2</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里学会了STL内置的gcd,用法为__gcd.</p>
+
+      
+    </div>
+
+    
+    
+    
+	
+	 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/30/D-Cleaning-the-Phone/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
       <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="迎接命中注定的失败">
+      <meta itemprop="description" content="Just For Fun">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -266,7 +442,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
       <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="迎接命中注定的失败">
+      <meta itemprop="description" content="Just For Fun">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -369,7 +545,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
       <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="迎接命中注定的失败">
+      <meta itemprop="description" content="Just For Fun">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -446,7 +622,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
       <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="迎接命中注定的失败">
+      <meta itemprop="description" content="Just For Fun">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -521,7 +697,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
       <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="迎接命中注定的失败">
+      <meta itemprop="description" content="Just For Fun">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -596,7 +772,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
       <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="迎接命中注定的失败">
+      <meta itemprop="description" content="Just For Fun">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -691,7 +867,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
       <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="迎接命中注定的失败">
+      <meta itemprop="description" content="Just For Fun">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -765,7 +941,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
       <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="迎接命中注定的失败">
+      <meta itemprop="description" content="Just For Fun">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -825,186 +1001,6 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">complex</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">complex</span>(<span class="keyword">double</span> r = <span class="number">0</span>, <span class="keyword">double</span> i = <span class="number">0</span>)</span><br><span class="line">		:re(r), im(i)</span><br><span class="line">	&#123; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">real</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> re; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">imag</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> im; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">double</span> re, im;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">double</span></span><br><span class="line">real(<span class="keyword">const</span> <span class="built_in">complex</span>&amp; x)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> x.real();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">double</span></span><br><span class="line">imag(<span class="keyword">const</span> <span class="built_in">complex</span>&amp; x)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> x.real();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这里又提供了两个函数作为外界接口,调用方法更加的通俗易懂.</p>
-
-      
-    </div>
-
-    
-    
-    
-	
-	 
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/12/%E5%A0%86-%E6%A0%88-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
-      <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="迎接命中注定的失败">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nnnuus's World">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/12/%E5%A0%86-%E6%A0%88-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">堆,栈,内存管理</a>
-        </h2>
-
-        <div class="post-meta">
-
-		
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-12 18:57:01" itemprop="dateCreated datePublished" datetime="2021-03-12T18:57:01+08:00">2021-03-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-21 13:03:13" itemprop="dateModified" datetime="2021-04-21T13:03:13+08:00">2021-04-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">C++笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>当一个变量被声明,它在内存中就分配了一块区域来进行存储,对于在程序中声明的变量,它就存储在栈中,当变量在相应的作用域结束后,就会被电脑收回,释放相关的内存,比较典型的例子就是local object,在一个函数中声明的对象都是local object.</p>
-<p>当一个变量以动态内存的方式进行分配空间,那么分配到的空间便会从堆中获得,堆中的内存在一个程序结束之前是不会被释放的,必须由程序员自己手动释放,如果一块内存无法被释放,那么就会发生内存泄漏,这体现了C++的一个特性,相信C++程序员,给予他们更大的自由度.</p>
-<p>C++中在分配动态内存时,采用的关键字是new,通过课程我们可以了解到,new其实借用了C语言中的malloc来进行内存的分配,其主要的步骤有三步:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Complex *pc = <span class="keyword">new</span> Complex(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">Complex *pc;</span><br><span class="line"><span class="keyword">void</span>* temp = <span class="keyword">operator</span> <span class="keyword">new</span>(<span class="keyword">sizeof</span>(Complex));	<span class="comment">//分配内存</span></span><br><span class="line">pc = <span class="keyword">static_cast</span>&lt;Complex*&gt;(temp);	<span class="comment">//强制类型转换</span></span><br><span class="line">pc-&gt;Complex::Complex(<span class="number">1</span>, <span class="number">2</span>);		<span class="comment">//调用构造函数</span></span><br></pre></td></tr></table></figure>
-
-<p>上面的代码提一个疑问,通过编译器实操了解到malloc一个complex返回的是一个void的指针,目前还不知道为何是这种情况,待以后了解后进行补充.</p>
-<p>从new的大概步骤中我们可以看出C++为何要对malloc进行封装,补全,创造出new这个关键字.C++中存在对对象的动态分配,如果只是分配相关的内存大小,而不能进行构造的话,必须要求程序员在以另外的方式进行构造,那这种设计不仅是低效的,更是不够智能的.同样的与new配对的delete释放,也增加了一个步骤.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> pc</span><br><span class="line"></span><br><span class="line">Complex::~Complex();</span><br><span class="line"><span class="built_in">free</span>(pc);</span><br></pre></td></tr></table></figure>
-
-<p>即先析构再释放相关的内存,对于析构函数的重要性,之前已经提过,如果一个对象中分配的有相关的动态内存,那么直接进行free的话,对象内分配的内存就无法再找到,会发生内存泄漏.</p>
-<p>这里直接截一张教学的图来进行总结:</p>
-<p><img src="C:\Users\hxy\Desktop\杂七杂八\QQ图片20210312205104.png" alt="QQ图片20210312205104"></p>
-<p>1.在gdb状态下分配一块内存区域会消耗更大的内存空间,具体的用处我还不得而知.</p>
-<p>2.在动态分配内存时,这一块内存的首部和尾部会各存储一个四字节的数据,用来记录每块内存的地址,便于编译器后续的回收,这块区域的最后一位表示内存的状态,分配出去表示1,前面几位表示内存的大小,因为地址采用16进制表示,所以这里是4.</p>
-<p>3.动态内存的分配编译器只能一次16字节的分配,具体原因我不得而知.</p>
-<p>4.在用new分配的内存区域中有一块区域用来存储数组的大小,为了delete做准备.</p>
-<p>5.释放数组时必须采用delete []的方式进行释放,上面提到的记录数组大小的数字,在delete时会调用相同次数的析构函数,避免发生内存泄漏.</p>
-
-      
-    </div>
-
-    
-    
-    
-	
-	 
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/12/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
-      <meta itemprop="name" content="Nnnuus">
-      <meta itemprop="description" content="迎接命中注定的失败">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nnnuus's World">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/12/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="post-title-link" itemprop="url">深拷贝和浅拷贝</a>
-        </h2>
-
-        <div class="post-meta">
-
-		
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-12 10:40:50" itemprop="dateCreated datePublished" datetime="2021-03-12T10:40:50+08:00">2021-03-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-13 14:18:24" itemprop="dateModified" datetime="2021-03-13T14:18:24+08:00">2021-03-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">C++笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在之前写的complex类中,没有指针的出现,但class with pointers 是一种比较常见的情况,为了掌握这种情况,我们和之前的complex类进行类比,设计一个自己的myString.</p>
-<p>首先,应该明确的是,myString中我们的数据应该是一个指针,存储字符串就是用指针指向一块连续的存储着字符的内存区域,那么我们继续考虑构造函数的事,函数传参没办法把一个字符串传进来,所以传进的是一个指针,如果沿用之前的complex类的构造函数,便会出错.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myString</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//myString(const String&amp; str) : m_data(str) &#123;&#125;	//沿用之前初始化列表的方式显然是不对的,因为创造出一个myString对象</span></span><br><span class="line">    												<span class="comment">//是需要它在内存中有一块自己的区域,那么在class中我们就需要用new来													  //分配动态内存.</span></span><br><span class="line">    String(<span class="keyword">const</span> <span class="keyword">char</span>* cstr = <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (cstr) &#123;</span><br><span class="line">		m_data = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(cstr) + <span class="number">1</span>];</span><br><span class="line">		<span class="built_in">strcpy</span>(m_data, cstr);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			m_data = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1</span>];</span><br><span class="line">			*m_data = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">char</span>* m_data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>其实之前complex类的构造函数中采用的就是浅拷贝的方式,即将数据一个字节一个字节的拷贝给另一个对象,对于非指针的数据类型这样固然很好,而且你也找不出其它拷贝的方式,但对于带有指针的class而言,如果用编译器自带的浅拷贝函数,那么便会将指针进行拷贝,这样的话两个对象指向的实际上是一块内存,对其中一个对象进行修改,也会牵连到另一个对象,这样的效果必然不是使用者想得到的,为了解决这种问题,就有了深拷贝,即在内存中重新分配区域,然后在新的区域中对数据进行拷贝.</p>
-<p>这里需要特别提的一点是拷贝赋值运算符的重载,还是以myString为例.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span></span><br><span class="line">String&amp; String::<span class="keyword">operator</span>=(<span class="keyword">const</span> String&amp; str)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">this</span> == &amp;str)</span><br><span class="line">		<span class="keyword">return</span> *<span class="keyword">this</span>;	<span class="comment">//检测是否是self assignment,如果是自我赋值,那么str和this共享的是同一块内存区域释放掉m_data,会导						//致str指向的内存也被释放,在进行new的时候strlen函数进行运算的是一个空的内存区域,那么也就无法给							//this正确地分配合适的内存大小.</span></span><br><span class="line">						<span class="comment">//这里需要注意的是拷贝赋值都应检测是否是self assignment</span></span><br><span class="line">	<span class="keyword">delete</span> [] m_data;</span><br><span class="line">	m_data = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(str.m_data) + <span class="number">1</span>];</span><br><span class="line">	<span class="built_in">strcpy</span>(m_data, str.m_data);</span><br><span class="line">	<span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>对于上面的设计,虽然很少有人会自我赋值,但是严谨的设计者还是想到了这一点,不由得感叹指针的奥妙和stl的精湛设计.</p>
 
       
     </div>
@@ -1086,14 +1082,14 @@
     <img class="site-author-image" itemprop="image" alt="Nnnuus"
       src="https://i.loli.net/2021/03/13/nZa6FtkdxThVQoS.jpg">
   <p class="site-author-name" itemprop="name">Nnnuus</p>
-  <div class="site-description" itemprop="description">迎接命中注定的失败</div>
+  <div class="site-description" itemprop="description">Just For Fun</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">77</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
